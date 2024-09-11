@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LA ELEGIDA - Tienda de Productos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #CA0022;
+            --secondary-color: #F18F00;
+            --background-color: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--background-color);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .cart-icon {
+            font-size: 1.5rem;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 2rem 0;
+            color: var(--primary-color);
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .product img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .product h3 {
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .product p {
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+
+        .product .price {
+            font-weight: bold;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+
+        .btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <h2>Nuestra Tienda</h2>
+            <div class="cart-icon" id="cartIcon">
+                🛒
+                <span class="cart-count" id="cartCount">0</span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Nuestros Productos</h1>
+        <div class="products" id="productContainer"></div>
+    </main>
+
+    <script>
+        const products = [
+            {
+                id: 1,
+                name: "API MORADO",
+                description: "LOREM IPSUM",
+                price: 6.50,
+                image: "/placeholder.svg?height=300&width=300"
+            },
+            {
+                id: 2,
+                name: "WILLKAPARU",
+                description: "Lorem Ipsum",
+                price: 6.50,
+                image: "/placeholder.svg?height=300&width=300"
+            },
+            {
+                id: 3,
+                name: "TOJORI",
+                description: "Lorem Ipsum",
+                price: 5,
+                image: "/placeholder.svg?height=300&width=300"
+            },
+            {
+                id: 4,
+                name: "SOYA",
+                description: "Lorem Ipsum",
+                price: 6.50,
+                image: "/placeholder.svg?height=300&width=300"
+            },
+            {
+                id: 5,
+                name: "MULTICEREAL",
+                description: "LOREM IPSUM.",
+                price: 6.50,
+                image: "/placeholder.svg?height=300&width=300"
+            },
+            {
+                id: 6,
+                name: "AJONJOLI",
+                description: "LOREM IPSUM",
+                price: 6.50,
+                image: "/placeholder.svg?height=300&width=300"
+            }
+        ];
+
+        const productContainer = document.getElementById('productContainer');
+        const cartCount = document.getElementById('cartCount');
+        let cart = [];
+
+        function renderProducts() {
+            productContainer.innerHTML = products.map(product => `
+                <div class="product">
+                    <img src="${product.image}" alt="${product.name}">
+                    <h3>${product.name}</h3>
+                    <p>${product.description}</p>
+                    <div class="price">$${product.price.toFixed(2)}</div>
+                    <button class="btn" onclick="addToCart(${product.id})">Añadir al Carrito</button>
+                </div>
+            `).join('');
+        }
+
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId);
+            if (product) {
+                cart.push(product);
+                updateCartCount();
+            }
+        }
+
+        function updateCartCount() {
+            cartCount.textContent = cart.length;
+        }
+
+        renderProducts();
+    </script>
+</body>
+</html>
