@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>LA ELEGIDA</title>
+        
+        <!-- Enlaza el archivo CSS compilado -->
+        <link rel="stylesheet" href="styles.css">
+        
+        <!-- Enlaza Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        
+        <!-- Importa la fuente Montserrat desde Google Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap">
+
+    </head>
+
+<body>
+    
+    <header>
+        
+        <div class="container">
+
+            <div class="top-bar">
+                <a href="index.html" class="logo">
+                    <img src="/laelegida/static/assets/img/logo-blanco.png" alt="Logo de La Elegida">
+                </a>
+            
+                <button class="menu-button" onclick="toggleHamburgerMenu()">
+                    <i class="fas fa-bars"></i>
+                </button>
+            
+                <div id="hamburgerMenu" class="hamburger-menu">
+                    <a href="#"><i class="fas fa-sign-in-alt"></i> Iniciar sesión</a>
+                    <a href="#"><i class="fas fa-user-plus"></i> Crear cuenta</a>
+                    <a href="#"><i class="fas fa-box"></i> Pedidos</a>
+                    <a href="#"><i class="fas fa-star"></i> Recomendaciones</a>
+                    <a href="#"><i class="fas fa-history"></i> Historial de Búsqueda</a>
+                </div>
+            </div>
+                       
+
+            <nav class="search-bar">
+
+                <div class="categories-container">
+                    <button class="categories-button" onclick="toggleCategoriesDropdown()">
+                        <i class="fas fa-th-list"></i> Categorías
+                    </button>
+                    
+                    <div id="categoriesDropdown" class="categories-dropdown">
+                        <a href="#">Refrescos</a>
+                        <a href="#">Lawas</a>
+                        <a href="#">Sopas</a>
+                    </div>
+                </div>                
+                
+            
+                <div class="search-container">
+                    <input type="search" placeholder="Buscar productos..." class="search-input">
+                    <button type="submit" class="search-button">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            
+                <!-- El botón del carrito se mantiene en su lugar -->
+                <button class="cart-button">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </button>
+            </nav>            
+            
+        </div>
+    </header>
+
+    <main class="content">
+        <!-- Contenido principal aquí -->
+    
+        <!-- Carrusel -->
+        <div class="carousel-container">
+            <button class="carousel-button" id="prevButton">&lt;</button>
+            <div class="carousel">
+                <div class="carousel-image"></div>
+                <!-- Añade más imágenes o contenido aquí -->
+            </div>
+            <button class="carousel-button" id="nextButton">&gt;</button>
+        </div>
+    
+        <!-- Sección de Novedades -->
+        <section class="novedades-section">
+            <div class="section-header">
+                <h2 class="section-title">Novedades</h2>
+                <button class="view-more-button">Ver más &gt;&gt;&gt;</button>
+            </div>
+        
+            <div class="product-wrapper">
+                <!-- Producto 1 -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <!-- Aquí se añadirá la imagen -->
+                    </div>
+                    <div class="product-buttons">
+                        <button class="product-button">Comprar</button>
+                        <button class="product-button">Ver detalles</button>
+                        <button class="product-button">Agregar al carrito</button>
+                    </div>
+                </div>
+        
+                <!-- Producto 2 -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <!-- Aquí se añadirá la imagen -->
+                    </div>
+                    <div class="product-buttons">
+                        <button class="product-button">Comprar</button>
+                        <button class="product-button">Ver detalles</button>
+                        <button class="product-button">Agregar al carrito</button>
+                    </div>
+                </div>
+        
+                <!-- Producto 3 -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <!-- Aquí se añadirá la imagen -->
+                    </div>
+                    <div class="product-buttons">
+                        <button class="product-button">Comprar</button>
+                        <button class="product-button">Ver detalles</button>
+                        <button class="product-button">Agregar al carrito</button>
+                    </div>
+                </div>
+        
+                <!-- Producto 4 -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <!-- Aquí se añadirá la imagen -->
+                    </div>
+                    <div class="product-buttons">
+                        <button class="product-button">Comprar</button>
+                        <button class="product-button">Ver detalles</button>
+                        <button class="product-button">Agregar al carrito</button>
+                    </div>
+                </div>
+        
+                <!-- Producto 5 -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <!-- Aquí se añadirá la imagen -->
+                    </div>
+                    <div class="product-buttons">
+                        <button class="product-button">Comprar</button>
+                        <button class="product-button">Ver detalles</button>
+                        <button class="product-button">Agregar al carrito</button>
+                    </div>
+                </div>
+        
+                <!-- Producto 6 -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <!-- Aquí se añadirá la imagen -->
+                    </div>
+                    <div class="product-buttons">
+                        <button class="product-button">Comprar</button>
+                        <button class="product-button">Ver detalles</button>
+                        <button class="product-button">Agregar al carrito</button>
+                    </div>
+                </div>
+        
+                <!-- Producto 7 -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <!-- Aquí se añadirá la imagen -->
+                    </div>
+                    <div class="product-buttons">
+                        <button class="product-button">Comprar</button>
+                        <button class="product-button">Ver detalles</button>
+                        <button class="product-button">Agregar al carrito</button>
+                    </div>
+                </div>
+        
+                <!-- Producto 8 -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <!-- Aquí se añadirá la imagen -->
+                    </div>
+                    <div class="product-buttons">
+                        <button class="product-button">Comprar</button>
+                        <button class="product-button">Ver detalles</button>
+                        <button class="product-button">Agregar al carrito</button>
+                    </div>
+                </div>
+        
+                <!-- Producto 9 -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <!-- Aquí se añadirá la imagen -->
+                    </div>
+                    <div class="product-buttons">
+                        <button class="product-button">Comprar</button>
+                        <button class="product-button">Ver detalles</button>
+                        <button class="product-button">Agregar al carrito</button>
+                    </div>
+                </div>
+        
+                <!-- Producto 10 -->
+                <div class="product-item">
+                    <div class="product-image">
+                        <!-- Aquí se añadirá la imagen -->
+                    </div>
+                    <div class="product-buttons">
+                        <button class="product-button">Comprar</button>
+                        <button class="product-button">Ver detalles</button>
+                        <button class="product-button">Agregar al carrito</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+    
+        <!-- Más contenido aquí -->
+    </main>
+    
+    
+    <footer>
+    <div class="container footer-content">
+        <div class="social-links">
+            <a href="#" class="social-link">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-link">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+
+        <div class="contact-info">
+            <p>Email: <a href="mailto:contacto@laelegida.com">contacto@laelegida.com</a></p>
+            <p>Teléfono: <a href="tel:+1234567890">+1 234 567 890</a></p>
+            <p>Dirección: Calle Falsa 123, Ciudad, País</p>
+        </div>
+
+        <div class="footer-links">
+            <a href="#">Sobre nosotros</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Términos y condiciones</a>
+            <a href="#">FAQs</a>
+        </div>
+
+        <div class="copyright">
+            © 2023 LaElegida. Todos los derechos reservados.
+        </div>
+    </div>
+</footer>
+
+    <!-- Enlaza el archivo JavaScript -->
+    <script src="scripts.js"></script>
+</body>
+</html>
