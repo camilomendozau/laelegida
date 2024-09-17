@@ -207,7 +207,7 @@
                     <img src="${product.image}" alt="${product.name}">
                     <h3>${product.name}</h3>
                     <p>${product.description}</p>
-                    <div class="price">$${product.price.toFixed(2)}</div>
+                    <div class="price">${product.price.toFixed(2)} Bs.</div>
                     <button class="btn" onclick="addToCart(${product.id})">Añadir al Carrito</button>
                 </div>
             `).join('');
