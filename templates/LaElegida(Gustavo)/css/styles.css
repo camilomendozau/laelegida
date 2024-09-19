@@ -196,4 +196,7 @@ img {
 
 
 
-
+img.img-fluid {
+    max-width: 150px; /* Ajusta este valor según el tamaño deseado */
+    height: auto; /* Mantiene la proporción de la imagen */
+}

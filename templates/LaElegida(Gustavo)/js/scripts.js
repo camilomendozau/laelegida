@@ -3,7 +3,7 @@ $(document).ready(function() {
         { id: 1, name: "Aceite de Oliva Extra Virgen", price: 9.99, image: "https://via.placeholder.com/300x200.png?text=Aceite+de+Oliva" },
         { id: 2, name: "Pasta Integral", price: 2.49, image: "https://via.placeholder.com/300x200.png?text=Pasta+Integral" },
         { id: 3, name: "Salsa de Tomate Orgánica", price: 3.99, image: "https://via.placeholder.com/300x200.png?text=Salsa+de+Tomate" },
-        { id: 4, name: "Quinoa", price: 5.99, image: "https://via.placeholder.com/300x200.png?text=Quinoa" },
+        { id: 4, name: "Quinua", price: 5.99, image: "https://via.placeholder.com/300x200.png?text=Quinoa" },
         { id: 5, name: "Miel Pura", price: 7.99, image: "https://via.placeholder.com/300x200.png?text=Miel+Pura" },
         { id: 6, name: "Café Gourmet", price: 12.99, image: "https://via.placeholder.com/300x200.png?text=Café+Gourmet" },
     ];
@@ -17,7 +17,7 @@ $(document).ready(function() {
                     <img src="${product.image}" class="card-img-top" alt="${product.name}">
                     <div class="card-body">
                         <h5 class="card-title">${product.name}</h5>
-                        <p class="card-text text-secondary">$${product.price.toFixed(2)}</p>
+                        <p class="card-text text-secondary">${product.price.toFixed(2)} Bs.</p>
                         <div class="d-flex justify-content-between">
                             <button class="btn btn-primary btn-sm">Comprar</button>
                             <button class="btn btn-outline-primary btn-sm">Ver detalles</button>
