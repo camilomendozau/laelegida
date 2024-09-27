@@ -246,39 +246,39 @@
     
      
 
-<footer style="background-color: #CA0022; color: #FFFFFF; padding: 1rem;">
-    <div class="container text-center">
+<footer>
+    <div class="text-center">
         <!-- Fila de Redes Sociales -->
         <div>
-            <a href="#" class="btn" style="border-radius: 50%; background-color: #FFFFFF; border: 1px solid #F18F00; color: #F18F00; margin: 0.5rem;">
+            <a href="#" class="btn">
                 <i class="fab fa-whatsapp"></i>
             </a>
-            <a href="#" class="btn" style="border-radius: 50%; background-color: #FFFFFF; border: 1px solid #F18F00; color: #F18F00; margin: 0.5rem;">
+            <a href="#" class="btn">
                 <i class="fab fa-facebook"></i>
             </a>
-            <a href="#" class="btn" style="border-radius: 50%; background-color: #FFFFFF; border: 1px solid #F18F00; color: #F18F00; margin: 0.5rem;">
+            <a href="#" class="btn">
                 <i class="fab fa-instagram"></i>
             </a>
-            <a href="#" class="btn" style="border-radius: 50%; background-color: #FFFFFF; border: 1px solid #F18F00; color: #F18F00; margin: 0.5rem;">
+            <a href="#" class="btn">
                 <i class="fab fa-twitter"></i>
             </a>
-            <a href="#" class="btn" style="border-radius: 50%; background-color: #FFFFFF; border: 1px solid #F18F00; color: #F18F00; margin: 0.5rem;">
+            <a href="#" class="btn">
                 <i class="fab fa-linkedin"></i>
             </a>
-            <a href="#" class="btn" style="border-radius: 50%; background-color: #FFFFFF; border: 1px solid #F18F00; color: #F18F00; margin: 0.5rem;">
+            <a href="#" class="btn">
                 <i class="fab fa-pinterest"></i>
             </a>
         </div>
 
         <!-- Fila de Contacto -->
         <div class="mt-3">
-            <a href="mailto:info@laelegida.com" class="btn" style="border-radius: 50%; background-color: #FFFFFF; border: 1px solid #F18F00; color: #F18F00; margin: 0.5rem;">
+            <a href="mailto:info@laelegida.com" class="btn">
                 <i class="fas fa-envelope"></i>
             </a>
-            <a href="tel:+1234567890" class="btn" style="border-radius: 50%; background-color: #FFFFFF; border: 1px solid #F18F00; color: #F18F00; margin: 0.5rem;">
+            <a href="tel:+1234567890" class="btn">
                 <i class="fas fa-phone-alt"></i>
             </a>
-            <a href="https://www.google.com/maps" class="btn" style="border-radius: 50%; background-color: #FFFFFF; border: 1px solid #F18F00; color: #F18F00; margin: 0.5rem;">
+            <a href="https://www.google.com/maps" class="btn">
                 <i class="fas fa-map-marker-alt"></i>
             </a>
         </div>
@@ -290,17 +290,59 @@
     </div>
 </footer>
 
-    
-    <style>
-        footer .link-effect {
-            color: #ffffff; /* Color blanco por defecto */
-            transition: color 0.3s ease; /* Transición suave solo para el color */
+<style>
+    /* Asegúrate de que el html y el body ocupen el 100% de la altura */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; /* Evita el desbordamiento horizontal */
+    }
+
+    main {
+        flex: 1;
+    }
+
+    footer {
+        background-color: #CA0022;
+        color: #FFFFFF;
+        padding: 1rem;
+        width: 101vw; /* Forzar a sobresaturar ligeramente el ancho del viewport */
+        position: relative;
+        left: -0.5vw; /* Moverlo ligeramente a la izquierda para compensar */
+    }
+
+    footer .text-center {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    footer a.btn {
+        border-radius: 50%;
+        background-color: #FFFFFF;
+        border: 1px solid #F18F00;
+        color: #F18F00;
+        margin: 0.5rem;
+    }
+
+    footer .link-effect {
+        color: #ffffff;
+        transition: color 0.3s ease;
+    }
+
+    footer .link-effect:hover {
+        color: #ffffff;
+    }
+
+    /* Media query para pantallas pequeñas */
+    @media (max-width: 768px) {
+        footer {
+            width: 101vw; /* Sigue ocupando más del 100% del viewport en pantallas pequeñas */
         }
-    
-        footer .link-effect:hover {
-            color: #ffffff; /* Mantiene el color blanco al pasar el mouse */
-        }
-    </style>
+    }
+</style>
+
 
 </body>
 </html>
