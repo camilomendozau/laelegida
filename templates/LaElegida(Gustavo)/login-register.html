@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Elegida - Productos Alimenticios</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/laelegida/static/assets/icons/logo-laelegida.ico" type="image/x-icon">
+    <!-- Ruta corregida para styles.css -->
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+<body>
+
+    <style>
+        /* Asegúrate de que el html y el body ocupen el 100% de la altura */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column; /* Organiza el contenido en columna */
+        }
+
+        /* El main debe ocupar el espacio disponible */
+        main {
+            flex: 1; /* Toma el espacio restante */
+        }
+
+        footer {
+            background-color: #CA0022;
+            color: #FFFFFF;
+            padding: 1rem;
+        }
+
+        footer .link-effect {
+            color: #ffffff; /* Color blanco por defecto */
+            transition: color 0.3s ease; /* Transición suave solo para el color */
+        }
+
+        footer .link-effect:hover {
+            color: #ffffff; /* Mantiene el color blanco al pasar el mouse */
+        }
+    </style>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>La Elegida - Productos Alimenticios</title>
+        
+        <!-- Importación de Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        
+        <!-- Importación de Font Awesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+        
+        <!-- Importación de la fuente Montserrat -->
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+        
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="/laelegida/static/assets/icons/logo-laelegida.ico" type="image/x-icon">
+        
+        <!-- Estilos personalizados -->
+        <link href="css/styles.css" rel="stylesheet">
+        
+        <!-- Importación de React y ReactDOM -->
+        <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    </head>
+    
+    <body>    
+        
+        
+
+
+        <header class="text-white p-3 fixed-top" style="background-color: #CA0022; z-index: 9999;">
+            <div class="container">
+                <div class="row">
+                    <!-- Fila 1 -->
+                    <!-- Contenedor 1: Logo -->
+                <div class="col-auto" style="display: grid; place-items: center; padding: 0;">
+                    <a href="index.html">
+                        <img src="/static/assets/img/logo-blanco.png" alt="La Elegida" style="width: 150px; height: auto;">
+                    </a>
+                </div>
+
+        
+                    <!-- Contenedor 2: Botón de usuario y menú hamburguesa -->
+                    <div class="col-auto" id="buttonContainer" style="margin-left: auto; padding: 0; display: grid; grid-template-columns: repeat(2, auto);">
+                        <button class="btn btn-outline-light me-2 mb-0" type="button" id="profileButton" style="height: 38px; margin: 0;">
+                            <i class="fas fa-user"></i>
+                        </button>
+                        <script>
+                            document.getElementById('profileButton').onclick = function() {
+                                window.location.href = 'login-register.html';
+                            };
+                        </script>
+                        <button id="menuToggle" class="btn btn-outline-light mb-0" type="button" style="height: 38px; margin: 0;">
+                            <i class="fas fa-bars"></i>
+                        </button>
+                    </div>
+                    
+                </div>
+
+                <div id="hamburgerMenu" class="offcanvas offcanvas-end" tabindex="-1" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px);">
+                    <div class="offcanvas-header" style="background-color: rgba(255, 255, 255, 0.8); color: #000000;">
+                        <h5 class="offcanvas-title">Menú</h5>
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+                    </div>
+                    <div class="offcanvas-body" style="display: grid; grid-template-columns: 1fr; gap: 10px;">
+                        <ul class="nav flex-column">
+                            <li class="nav-item"><a class="nav-link menu-link" href="#" onclick="setActive(this)">Mi cuenta</a></li>
+                            <li class="nav-item"><a class="nav-link menu-link" href="#" onclick="setActive(this)">Ofertas</a></li>
+                            <li class="nav-item"><a class="nav-link menu-link" href="#" onclick="setActive(this)">Lo Nuevo</a></li>
+                            <li class="nav-item"><a class="nav-link menu-link" href="#" onclick="setActive(this)">Abarrotes y Despensas</a></li>
+                            <li class="nav-item"><a class="nav-link menu-link" href="#" onclick="setActive(this)">Carnes</a></li>
+                            <li class="nav-item"><a class="nav-link menu-link" href="#" onclick="setActive(this)">Lácteos y Derivados</a></li>
+                            <li class="nav-item"><a class="nav-link menu-link" href="#" onclick="setActive(this)">Bebidas y Licores</a></li>
+                            <li class="nav-item"><a class="nav-link menu-link" href="#" onclick="setActive(this)">Frutas y Verduras</a></li>
+                            <li class="nav-item"><a class="nav-link menu-link" href="#" onclick="setActive(this)">Hogar</a></li>
+                            <li class="nav-item"><a class="nav-link menu-link" href="#" onclick="setActive(this)">Snack y confiterías</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <style>
+                    .menu-link {
+                        color: #F18F00; /* Color naranja */
+                        transition: color 0.3s ease; /* Transición suave */
+                    }
+                
+                    .menu-link:hover {
+                        color: red; /* Cambia a rojo al pasar el mouse */
+                    }
+                </style>
+                
+                
+                
+                <script>
+                    function setActive(link) {
+                        // Remueve la clase active de todos los enlaces
+                        const links = document.querySelectorAll('.menu-link');
+                        links.forEach(l => l.classList.remove('active'));
+                        
+                        // Agrega la clase active al enlace clicado
+                        link.classList.add('active');
+                    }
+                </script>
+                
+        
+                <div class="row mt-2">
+                    <!-- Fila 2 -->
+                    <!-- Contenedor 3: Input de búsqueda y botón de búsqueda -->
+                    <div class="col d-flex align-items-center" style="display: grid; grid-template-columns: auto auto; gap: 0.5rem;">
+                        <form class="d-flex w-100">
+                            <input class="form-control" type="search" placeholder="Buscar productos..." aria-label="Buscar" style="height: 38px;">
+                            <button class="btn btn-outline-light" type="submit" style="height: 38px;">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                    
+        
+                    <!-- Contenedor 4: Botón del carrito -->
+                    <div class="col-auto d-flex align-items-center" style="display: grid; grid-template-columns: auto;">
+                        <button class="btn btn-outline-light" type="button" id="carritoButton" style="height: 38px;">
+                            <a href="carrito-compras.html">
+                                <i class="fas fa-shopping-cart" style="color: white;" onmouseover="this.style.color='black'" onmouseout="this.style.color='white'"></i>
+                            </a>
+                            
+                            
+                        </button>
+                    </div>
+                    
+                </div>
+            </div>
+        </header>
+
+        
+        <script>
+            // Espera a que el documento esté listo
+            document.addEventListener('DOMContentLoaded', function() {
+                const menuToggle = document.getElementById('menuToggle');
+                const hamburgerMenu = document.getElementById('hamburgerMenu');
+                const closeButton = hamburgerMenu.querySelector('.btn-close'); // Selecciona el botón de cierre
+        
+                // Agrega un evento al botón de menú
+                menuToggle.addEventListener('click', function() {
+                    toggleMenu();
+                });
+        
+                // Agrega un evento al botón de cierre
+                closeButton.addEventListener('click', function() {
+                    toggleMenu();
+                });
+        
+                function toggleMenu() {
+                    hamburgerMenu.classList.toggle('show');
+                    // Maneja el estilo de display según la clase
+                    hamburgerMenu.style.display = hamburgerMenu.classList.contains('show') ? 'block' : 'none';
+                }
+            });
+        </script>
+
+    <main class="container-fluid mt-5 mb-5" style="padding-top: 6rem; padding-bottom: 3rem; background-color: #FFFFFF;">
+        <div class="d-flex justify-content-center">
+            <div class="card w-100" style="max-width: 1200px;">
+                <div class="card-header text-center">
+                    <div style="margin-top: 6rem;"> <!-- Espacio arriba del título -->
+                    <h1>Bienvenido a La Elegida</h1>
+                    <p>Inicia sesión o regístrate para continuar</p>
+                </div>
+                <div class="card-body">
+                    <ul class="nav nav-tabs mb-3" id="auth-tabs" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link active" id="login-tab" data-bs-toggle="tab" data-bs-target="#login" type="button" role="tab">Iniciar Sesión</button>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <button class="nav-link" id="register-tab" data-bs-toggle="tab" data-bs-target="#register" type="button" role="tab">Registrarse</button>
+                        </li>
+                    </ul>
+                    <div class="tab-content" id="auth-tabs-content">
+                        <!-- Formulario de Iniciar Sesión -->
+                        <div class="tab-pane fade show active" id="login" role="tabpanel">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Correo</label>
+                                    <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Contraseña</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+                                </div>
+                                <button type="submit" class="btn" style="background-color: #CA0022; color: #FFFFFF;">Iniciar Sesión</button>
+                            </form>
+                        </div>
+                        <!-- Formulario de Registro -->
+                        <div class="tab-pane fade" id="register" role="tabpanel">
+                            <form>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Correo</label>
+                                    <input type="email" class="form-control" id="email" placeholder="nombre@ejemplo.com" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Contraseña</label>
+                                    <input type="password" class="form-control" id="password" placeholder="Contraseña" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="confirm-password" class="form-label">Confirmar Contraseña</label>
+                                    <input type="password" class="form-control" id="confirm-password" placeholder="Confirmar Contraseña" required>
+                                </div>
+                                <button type="submit" class="btn btn-success w-100">Crear Cuenta</button>
+                            </form>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="text-center my-3">
+                        <p>O continúa con</p>
+                        <button class="btn btn-outline-danger w-100" type="button">
+                            <i class="fas fa-envelope"></i> Google
+                        </button>
+                    </div>
+                </div>
+                <div class="card-footer text-center">
+                    <p>Al hacer clic en continuar, aceptas nuestros <a href="/terms" class="text-decoration-underline">Términos de servicio</a> y <a href="/privacy" class="text-decoration-underline">Política de privacidad</a>.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        $(document).ready(function() {
+            // Manejo de evento para el tab de registro
+            $('#register-tab').on('click', function() {
+                $('#register').addClass('show active');
+                $('#login').removeClass('show active');
+            });
+    
+            // Manejo de evento para el tab de inicio de sesión
+            $('#login-tab').on('click', function() {
+                $('#login').addClass('show active');
+                $('#register').removeClass('show active');
+            });
+        });
+    </script>
+    
+    
+
+    <footer>
+        <div class="text-center">
+            <!-- Fila de Redes Sociales -->
+            <div>
+                <a href="#" class="btn">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" class="btn">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="btn">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="btn">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="btn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+                <a href="#" class="btn">
+                    <i class="fab fa-pinterest"></i>
+                </a>
+            </div>
+    
+            <!-- Fila de Contacto -->
+            <div class="mt-3">
+                <a href="mailto:info@laelegida.com" class="btn">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+1234567890" class="btn">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+                <a href="https://www.google.com/maps" class="btn">
+                    <i class="fas fa-map-marker-alt"></i>
+                </a>
+            </div>
+    
+            <!-- Derechos Reservados -->
+            <div class="mt-3">
+                <p>&copy; 2024 La Elegida. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <style>
+        /* Asegúrate de que el html y el body ocupen el 100% de la altura */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Evita el desbordamiento horizontal */
+        }
+    
+        main {
+            flex: 1;
+        }
+    
+        footer {
+            background-color: #CA0022;
+            color: #FFFFFF;
+            padding: 1rem;
+            width: 101vw; /* Forzar a sobresaturar ligeramente el ancho del viewport */
+            position: relative;
+            left: -0.5vw; /* Moverlo ligeramente a la izquierda para compensar */
+        }
+    
+        footer .text-center {
+            max-width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+    
+        footer a.btn {
+            border-radius: 50%;
+            background-color: #FFFFFF;
+            border: 1px solid #F18F00;
+            color: #F18F00;
+            margin: 0.5rem;
+        }
+    
+        footer .link-effect {
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+    
+        footer .link-effect:hover {
+            color: #ffffff;
+        }
+    
+        /* Media query para pantallas pequeñas */
+        @media (max-width: 768px) {
+            footer {
+                width: 101vw; /* Sigue ocupando más del 100% del viewport en pantallas pequeñas */
+            }
+        }
+    </style>
+    
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+    
+</body>
+</html>
