@@ -40,8 +40,7 @@
         footer .link-effect:hover {
             color: #ffffff; /* Mantiene el color blanco al pasar el mouse */
         }
-    </style>
-
+    </style> 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -200,45 +199,51 @@
             });
         </script>
 
-
-
 <main class="container-fluid pt-5 pb-5" style="margin-top: 150px;">
     <div class="row">
-        <!-- Columna para la Imagen del Distribuidor -->
+        <!-- Columna para la Imagen del Producto -->
         <div class="col-md-8">
-            <div class="d-flex flex-column align-items-start">
-                <h2 class="mb-4">Distribuidor Elegido</h2>
-                <div id="distributorImageCarousel" class="carousel slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="https://via.placeholder.com/600x400.png?text=Distribuidor+1" class="d-block w-100" alt="Distribuidor" style="object-fit: cover; height: 400px;">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://via.placeholder.com/600x400.png?text=Distribuidor+2" class="d-block w-100" alt="Distribuidor" style="object-fit: cover; height: 400px;">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://via.placeholder.com/600x400.png?text=Distribuidor+3" class="d-block w-100" alt="Distribuidor" style="object-fit: cover; height: 400px;">
-                        </div>
+            <h2 class="mb-4 text-center">Nombre del Producto</h2>
+            <div id="productImageCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://via.placeholder.com/800x600.png?text=Producto+1" class="d-block w-100" alt="Producto" style="object-fit: cover; height: 600px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/800x600.png?text=Producto+2" class="d-block w-100" alt="Producto" style="object-fit: cover; height: 600px;">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://via.placeholder.com/800x600.png?text=Producto+3" class="d-block w-100" alt="Producto" style="object-fit: cover; height: 600px;">
                     </div>
                 </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true" style="background-color: #F18F00;"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#productImageCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true" style="background-color: #F18F00;"></span>
+                    <span class="visually-hidden">Siguiente</span>
+                </button>
             </div>
         </div>
 
-        <!-- Columna para la Descripción del Distribuidor -->
+        <!-- Columna para la Descripción del Producto -->
         <div class="col-md-4">
-            <h3 class="mb-4">Descripción del Distribuidor</h3>
-            <p style="font-size: 1.2rem;">Nombre: Juan Pérez<br>
-            Ubicación: Calle Secundaria 456, Ciudad<br>
-            Juan es un distribuidor confiable con años de experiencia en el suministro de productos alimenticios de alta calidad.</p>
+            <h3 class="mb-4">Descripción del Producto</h3>
+            <p class="fs-5">Aquí va la descripción del producto. Puedes incluir detalles sobre los ingredientes, el uso y cualquier otra información relevante que desees mostrar a tus clientes.</p>
             
-            <!-- Botón de Contacto -->
-            <div class="text-center mt-4">
-                <a href="https://wa.me/1234567890" class="btn" style="background-color: #CA0022; color: #FFFFFF;">Contactar por WhatsApp</a>
+            <!-- Botones -->
+            <div class="d-flex justify-content-between mt-4">
+                <button class="btn btn-danger" style="background-color: #CA0022; color: #FFFFFF;">Comprar</button>
+                <button class="btn btn-warning" style="background-color: #F18F00; color: #FFFFFF;">Agregar al Carrito</button>
             </div>
         </div>
     </div>
 </main>
 
+
+    
+     
 
 <footer>
     <div class="text-center">
@@ -258,9 +263,6 @@
             </a>
             <a href="#" class="btn">
                 <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="#" class="btn">
-                <i class="fab fa-pinterest"></i>
             </a>
         </div>
 

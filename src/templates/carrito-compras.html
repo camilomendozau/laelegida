@@ -201,52 +201,63 @@
         </script>
 
 
+
 <main class="container-fluid pt-5 pb-5" style="margin-top: 150px;">
     <div class="row">
         <div class="col-12">
-            <h2 class="mb-4">Escoger Distribuidor</h2>
+            <h2 class="mb-4 text-center">Carrito de Compras</h2>
             <div class="list-group">
-                <!-- Distribuidor 1 -->
+                <!-- Producto 1 -->
                 <div class="list-group-item d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
-                        <img src="https://via.placeholder.com/50" alt="Distribuidor 1" class="me-3" style="width: 50px; height: 50px;">
-                        <div>
-                            <span><strong>Distribuidor 1</strong></span><br>
-                            <span>Ubicación: Ciudad Fantasía</span>
-                        </div>
+                        <img src="https://via.placeholder.com/50" alt="Producto 1" class="me-3 rounded" style="width: 50px; height: 50px;">
+                        <span>Nombre del Producto 1</span>
                     </div>
-                    <button class="btn btn-success btn-sm">Elegir</button>
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-outline-secondary btn-sm me-2" onclick="decreaseQuantity(1)">-</button>
+                        <span id="quantity-1" class="mx-2">1</span>
+                        <button class="btn btn-outline-secondary btn-sm mx-2" onclick="increaseQuantity(1)">+</button>
+                        <button class="btn btn-danger btn-sm" onclick="removeProduct(1)">Eliminar</button>
+                    </div>
                 </div>
 
-                <!-- Distribuidor 2 -->
+                <!-- Producto 2 -->
                 <div class="list-group-item d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
-                        <img src="https://via.placeholder.com/50" alt="Distribuidor 2" class="me-3" style="width: 50px; height: 50px;">
-                        <div>
-                            <span><strong>Distribuidor 2</strong></span><br>
-                            <span>Ubicación: Villa Esperanza</span>
-                        </div>
+                        <img src="https://via.placeholder.com/50" alt="Producto 2" class="me-3 rounded" style="width: 50px; height: 50px;">
+                        <span>Nombre del Producto 2</span>
                     </div>
-                    <button class="btn btn-success btn-sm">Elegir</button>
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-outline-secondary btn-sm me-2" onclick="decreaseQuantity(2)">-</button>
+                        <span id="quantity-2" class="mx-2">1</span>
+                        <button class="btn btn-outline-secondary btn-sm mx-2" onclick="increaseQuantity(2)">+</button>
+                        <button class="btn btn-danger btn-sm" onclick="removeProduct(2)">Eliminar</button>
+                    </div>
                 </div>
 
-                <!-- Distribuidor 3 -->
+                <!-- Producto 3 -->
                 <div class="list-group-item d-flex justify-content-between align-items-center">
                     <div class="d-flex align-items-center">
-                        <img src="https://via.placeholder.com/50" alt="Distribuidor 3" class="me-3" style="width: 50px; height: 50px;">
-                        <div>
-                            <span><strong>Distribuidor 3</strong></span><br>
-                            <span>Ubicación: Pueblo Alegre</span>
-                        </div>
+                        <img src="https://via.placeholder.com/50" alt="Producto 3" class="me-3 rounded" style="width: 50px; height: 50px;">
+                        <span>Nombre del Producto 3</span>
                     </div>
-                    <button class="btn btn-success btn-sm">Elegir</button>
+                    <div class="d-flex align-items-center">
+                        <button class="btn btn-outline-secondary btn-sm me-2" onclick="decreaseQuantity(3)">-</button>
+                        <span id="quantity-3" class="mx-2">1</span>
+                        <button class="btn btn-outline-secondary btn-sm mx-2" onclick="increaseQuantity(3)">+</button>
+                        <button class="btn btn-danger btn-sm" onclick="removeProduct(3)">Eliminar</button>
+                    </div>
                 </div>
+            </div>
+
+            <!-- Botones de acción -->
+            <div class="d-flex justify-content-between mt-4">
+                <a href="escoger-distribuidor.html" class="btn btn-danger" style="background-color: #CA0022; color: #FFFFFF;">Finalizar compra</a>
+                <a href="index.html" class="btn btn-warning" style="background-color: #F18F00; color: #FFFFFF;">Seguir explorando</a>
             </div>
         </div>
     </div>
 </main>
-
-
 
 
 <script>
@@ -270,8 +281,6 @@
     }
 </script>
 
-     
-
 <footer>
     <div class="text-center">
         <!-- Fila de Redes Sociales -->
@@ -290,9 +299,6 @@
             </a>
             <a href="#" class="btn">
                 <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="#" class="btn">
-                <i class="fab fa-pinterest"></i>
             </a>
         </div>
 
