@@ -5,10 +5,10 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
-@app.route("/products")
+    return render_template("cliente/index.html")
+@app.route("/carrito")
 def products():
-    return render_template("products.html")
+    return render_template("cliente/cart.html")
 
 
 if __name__ == '__main__':
