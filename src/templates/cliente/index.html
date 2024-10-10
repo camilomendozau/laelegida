@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Elegida - Tienda en línea</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'elegida-red': '#CA0022',
+                        'elegida-orange': '#F18F00',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+
+<body class="flex flex-col min-h-full bg-gray-100">
+    <header class="bg-elegida-red text-white fixed top-0 left-0 right-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <a href="index.html" class="flex items-center" style="height: 80px; width: 200px;">
+                    <img src="/src/static/assets/img/logo-blanco.png" alt="La Elegida" class="h-full w-full object-contain">
+                </a>
+                <div class="flex items-center space-x-4">
+                    <button id="profileButton" 
+                            class="bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full p-2 border border-white" 
+                            aria-label="Perfil de usuario" 
+                            onclick="window.location.href='LR.html';">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <button id="menuToggle" class="md:hidden p-2 border border-white bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <button id="menuToggleDesktop" class="hidden md:block p-2 border border-white bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="flex flex-col py-4 md:flex-row md:items-center md:justify-between md:space-x-4">
+                <div class="relative flex-grow">
+                    <input type="search" placeholder="Buscar productos..." class="w-full bg-white rounded-full py-2 pl-4 pr-10 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-elegida-red focus:ring-opacity-50" aria-label="Buscar productos">
+                    <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-100 transition-colors duration-200 rounded-full p-2" aria-label="Buscar">
+                        <i class="fas fa-search text-black"></i>
+                    </button>
+                </div>
+                <a href="cart.html" class="relative mt-4 md:mt-0 flex items-center justify-center bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full p-2 border border-white" aria-label="Carrito de compras">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cartCount" class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold border border-white rounded px-2 py-1 transform translate-x-1/2 -translate-y-1/2">0</span>
+                </a>                             
+            </div>
+        </div>
+    </header>
+    
+   
+    <!-- Menú hamburguesa -->
+    <nav id="hamburgerMenu" class="fixed inset-y-0 right-0 transform translate-x-full transition-transform duration-300 ease-in-out bg-white w-64 p-6 overflow-y-auto z-50 md:hidden">
+        <button id="closeMenu" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" aria-label="Cerrar menú">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mt-8 space-y-4">
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Tés</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Sopas Instantáneas</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Snacks Salados</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Bebidas Frías</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Bebidas Calientes</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Chocolates y Dulces</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Galletas y Pasteles</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Snacks Saludables</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Aperitivos y Dips</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Ofertas Especiales</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        // Obtener referencias a los elementos
+        const menuToggle = document.getElementById('menuToggle');
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const closeMenu = document.getElementById('closeMenu');
+    
+        // Función para abrir el menú
+        menuToggle.addEventListener('click', function() {
+            hamburgerMenu.classList.remove('translate-x-full'); // Eliminar la clase para mostrar el menú
+        });
+    
+        // Función para cerrar el menú
+        closeMenu.addEventListener('click', function() {
+            hamburgerMenu.classList.add('translate-x-full'); // Añadir la clase para ocultar el menú
+        });
+    
+        // Cerrar el menú al hacer clic en cualquier enlace
+        const menuItems = hamburgerMenu.querySelectorAll('a');
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                hamburgerMenu.classList.add('translate-x-full'); // Oculta el menú al seleccionar un elemento
+            });
+        });
+    </script>
+
+<main class="flex-grow mt-32 container mx-auto px-4">
+    <section class="mb-12 mt-32">
+      <div class="relative w-full max-w-xl mx-auto">
+        <div class="overflow-hidden">
+          <div id="carousel" class="flex transition-transform duration-300 ease-in-out">
+            <div class="w-full flex-shrink-0 flex justify-center p-1">
+              <img src="/src/static/assets/img/products/carrusel/imagen-del-carrusel-1.jpg" alt="Producto 1" class="w-64 h-64 rounded-lg object-cover">
+            </div>
+            <div class="w-full flex-shrink-0 flex justify-center p-1">
+              <img src="/src/static/assets/img/products/carrusel/imagen-del-carrusel-2.jpg" alt="Producto 2" class="w-64 h-64 rounded-lg object-cover">
+            </div>
+            <div class="w-full flex-shrink-0 flex justify-center p-1">
+              <img src="/src/static/assets/img/products/carrusel/imagen-del-carrusel-3.jpg" alt="Producto 3" class="w-64 h-64 rounded-lg object-cover">
+            </div>
+          </div>
+        </div>
+        <button id="prevBtn" aria-label="Anterior producto" class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+        </button>
+        <button id="nextBtn" aria-label="Siguiente producto" class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white bg-opacity-50 rounded-full p-2 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+          </svg>
+        </button>
+      </div>
+    </section>
+  
+    <section class="productos-destacados py-12">
+        <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Productos Destacados</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          
+            <!-- Producto 1 -->
+            <div class="bg-white rounded-lg shadow-lg overflow-hidden">
+                <div class="relative">
+                  <img src="/src/static/assets/img/products/descarga.jpg" alt="Nescafé" class="w-full h-64 object-contain">
+                  <div class="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded-md text-sm font-semibold">Nuevo</div>
+                </div>
+                <div class="p-4">
+                  <h3 class="text-xl font-semibold mb-2">Nescafé</h3>
+                  <p class="text-2xl font-bold text-red-600 mb-4">19.99 Bs.</p>
+              
+                  <!-- Botón Comprar ahora -->
+                  <button class="w-full bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-colors duration-200 flex items-center justify-center mb-2"
+                  onclick="buyNow('Nescafé', 19.99, '/src/static/assets/img/products/descarga.jpg'); showConfirmationModal();">
+              Comprar ahora
+          </button>        
+
+                  <!-- Botón Ver detalles -->
+                  <button class="w-full bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition-colors duration-200 flex items-center justify-center mb-2"
+                    onclick="handleProductDetails('Nescafé', 19.99, '/src/static/assets/img/products/descarga.jpg', 'Café instantáneo de alta calidad', ['100% puro café', 'Aroma intenso', 'Fácil preparación'])">
+                    Ver detalles
+                  </button>
+              
+                  <!-- Botón Agregar al carrito -->
+                  <button class="w-full bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-200 flex items-center justify-center"
+                  onclick="addToCart('Nescafé', 19.99, '/src/static/assets/img/products/descarga.jpg'); showAddToCartModal();">
+                  Agregar al carrito
+              </button>
+              
+              
+              
+                </div>
+              </div>   
+              
+            <!-- Producto 2: Ajinomen -->
+<div class="bg-white rounded-lg shadow-lg overflow-hidden">
+    <div class="relative">
+        <img src="/src/static/assets/img/products/descarga (1).jpg" alt="Ajinomen" class="w-full h-64 object-contain">
+        <div class="absolute top-2 right-2 bg-yellow-500 text-white px-2 py-1 rounded-md text-sm font-semibold">Destacado</div>
+    </div>
+    <div class="p-4">
+        <h3 class="text-xl font-semibold mb-2">Ajinomen</h3>
+        <p class="text-2xl font-bold text-red-600 mb-4">Bs. 15.99</p>
+        
+        <!-- Botón Comprar ahora -->
+        <button onclick="buyNow('Ajinomen', 15.99, '/src/static/assets/img/products/descarga (1).jpg'); showConfirmationModal();" 
+                class="w-full bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-colors duration-200 flex items-center justify-center mb-2">
+            Comprar ahora
+        </button>
+        
+        <!-- Botón Ver detalles -->
+        <button class="w-full bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition-colors duration-200 flex items-center justify-center mb-2"
+                onclick="handleProductDetails('Ajinomen', 15.99, '/src/static/assets/img/products/descarga (1).jpg', 'Fideos instantáneos sabrosos', ['Rápido de preparar', 'Ideal para cualquier momento', 'Sabor auténtico'])">
+            Ver detalles
+        </button>
+
+        <!-- Botón Agregar al carrito -->
+        <button onclick="addToCart('Ajinomen', 15.99, '/src/static/assets/img/products/descarga (1).jpg'); showAddToCartModal();"
+                class="w-full bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-200 flex items-center justify-center">
+            Agregar al carrito
+        </button>
+    </div>
+</div>
+
+    
+           <!-- Producto 3: Fideos en sachet La Estrella -->
+<div class="bg-white rounded-lg shadow-lg overflow-hidden">
+    <div class="relative">
+        <img src="/src/static/assets/img/products/descarga (2).jpg" alt="Fideos en sachet marca La Estrella" class="w-full h-64 object-contain">
+        <div class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-md text-sm font-semibold">Oferta</div>
+    </div>
+    <div class="p-4">
+        <h3 class="text-xl font-semibold mb-2">Fideos en sachet La Estrella</h3>
+        <p class="text-2xl font-bold text-red-600 mb-4">Bs. 30.00</p>
+        
+        <!-- Botón Comprar ahora -->
+        <button onclick="buyNow('Fideos en sachet La Estrella', 30.00, '/src/static/assets/img/products/descarga (2).jpg'); showConfirmationModal();"
+                class="w-full bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-colors duration-200 flex items-center justify-center mb-2">
+            Comprar ahora
+        </button>
+
+        <!-- Botón Ver detalles -->
+        <button class="w-full bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition-colors duration-200 flex items-center justify-center mb-2"
+                onclick="handleProductDetails('Fideos en sachet La Estrella', 30.00, '/src/static/assets/img/products/descarga (2).jpg', 'Fideos instantáneos de alta calidad en práctico sachet, listos en minutos.', ['Fácil preparación', 'Sabor delicioso', 'Ideal para comidas rápidas'])">
+            Ver detalles
+        </button>
+
+        <!-- Botón Agregar al carrito -->
+        <button onclick="addToCart('Fideos en sachet La Estrella', 30.00, '/src/static/assets/img/products/descarga (2).jpg'); showAddToCartModal();"
+                class="w-full bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-200 flex items-center justify-center">
+            Agregar al carrito
+        </button>
+    </div>
+</div>
+
+
+            <!-- Producto 4: Leche en polvo marca Pil -->
+<div class="bg-white rounded-lg shadow-lg overflow-hidden">
+    <div class="relative">
+        <img src="/src/static/assets/img/products/descarga (3).jpg" alt="Leche en polvo marca Pil" class="w-full h-64 object-contain">
+        <div class="absolute top-2 right-2 bg-purple-600 text-white px-2 py-1 rounded-md text-sm font-semibold">Premium</div>
+    </div>
+    <div class="p-4">
+        <h3 class="text-xl font-semibold mb-2">Leche en polvo marca Pil</h3>
+        <p class="text-2xl font-bold text-red-600 mb-4">Bs. 18.75</p>
+        
+        <!-- Botón Comprar ahora -->
+        <button class="w-full bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-colors duration-200 flex items-center justify-center mb-2"
+                onclick="buyNow('Leche en polvo marca Pil', 18.75, '/src/static/assets/img/products/descarga (3).jpg'); showConfirmationModal();">
+            Comprar ahora
+        </button>
+
+        <!-- Botón Ver detalles -->
+        <button class="w-full bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition-colors duration-200 flex items-center justify-center mb-2"
+                onclick="handleProductDetails('Leche en polvo marca Pil', 18.75, '/src/static/assets/img/products/descarga (3).jpg', 'Leche en polvo de alta calidad, ideal para la preparación de bebidas y recetas.', ['Rica en nutrientes', 'Fácil disolución', 'Perfecta para el desayuno'])">
+            Ver detalles
+        </button>
+
+        <!-- Botón Agregar al carrito -->
+        <button onclick="addToCart('Leche en polvo marca Pil', 18.75, '/src/static/assets/img/products/descarga (3).jpg'); showAddToCartModal();"
+                class="w-full bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-200 flex items-center justify-center">
+            Agregar al carrito
+        </button>
+    </div>
+</div>
+
+
+
+            <!-- Ventana emergente -->
+<div id="confirmationModal" class="fixed inset-0 flex items-center justify-center z-50 hidden bg-gray-800 bg-opacity-50">
+    <div class="bg-white rounded-lg shadow-lg p-6 w-11/12 md:w-1/4 max-w-sm">
+        <p class="text-center mb-4">Agregado correctamente al carrito</p>
+        
+        <div class="flex flex-col items-center">
+            <button onclick="continueExploring()" class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors duration-200 mb-2 w-full">Seguir explorando</button>
+            <button onclick="goToCart()" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors duration-200 w-full">Ir al carrito</button>
+        </div>
+        
+        <span class="close text-gray-500 cursor-pointer block mt-4 text-center border border-red-600 rounded-full px-2 py-1" onclick="closeModal()">&times;</span>
+        
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+    // Función para mostrar la ventana emergente
+    function showConfirmationModal() {
+        const confirmationModal = document.getElementById('confirmationModal');
+        confirmationModal.style.display = 'flex'; // Mostrar el modal
+    }
+
+    // Función para cerrar la ventana emergente
+    function closeModal() {
+        const confirmationModal = document.getElementById('confirmationModal');
+        confirmationModal.style.display = 'none'; // Ocultar el modal
+    }
+
+    // Función para "Seguir explorando"
+    function continueExploring() {
+        closeModal(); // Cerrar el modal
+    }
+
+    // Función para redirigir al carrito
+    function goToCart() {
+        closeModal(); // Cerrar el modal
+        window.location.href = 'cart.html'; // Redirigir al carrito
+    }
+
+    // Agregar evento para cerrar el modal al hacer clic fuera de él
+    window.onclick = function(event) {
+        const confirmationModal = document.getElementById('confirmationModal');
+        if (event.target === confirmationModal) {
+            closeModal();
+        }
+    }
+
+
+
+</script>
+
+
+<style>
+    /* Estilos para centrar el modal */
+    #confirmationModal {
+        display: none; /* Oculto por defecto */
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+        z-index: 50;
+    }
+
+</style>
+
+    </section>
+    
+  </main>
+  <script>
+function buyNow(productName, price, imageUrl) {
+    // Crear el objeto del producto con nombre, precio e imagen
+    const product = {
+        name: productName,
+        price: price,
+        imageUrl: imageUrl,
+        quantity: 1 // Manejar las cantidades
+    };
+
+    // Obtener el carrito del localStorage (si existe), de lo contrario crear un array vacío
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+    // Verificar si el producto ya está en el carrito
+    const existingProduct = cart.find(item => item.name === productName);
+    if (existingProduct) {
+        // Si el producto ya existe, incrementar la cantidad
+        existingProduct.quantity += 1;
+    } else {
+        // Si el producto no existe, agregarlo al carrito
+        cart.push(product);
+    }
+
+    // Guardar el carrito actualizado en localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Actualizar el contador del carrito
+    updateCartCount();
+
+    // Ya no redirigir al carrito, simplemente se queda en la misma página
+}
+
+
+
+
+
+
+    function handleProductDetails(name, price, imageUrl, description, features) {
+        // Almacenar los datos del producto en localStorage
+        const productDetails = {
+            name: name,
+            price: price,
+            imageUrl: imageUrl,
+            description: description,
+            features: features
+        };
+
+        // Guardar los detalles en localStorage
+        localStorage.setItem('productDetails', JSON.stringify(productDetails));
+
+        // Redirigir a la página de detalles del producto
+        window.location.href = 'producto-detalle.html';
+    }
+
+// Función para agregar producto al carrito
+function addToCart(productName, price, imageUrl) {
+        const product = {
+            name: productName,
+            price: price,
+            imageUrl: imageUrl,
+            quantity: 1
+        };
+
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const existingProduct = cart.find(item => item.name === productName);
+
+        if (existingProduct) {
+            existingProduct.quantity += 1;
+        } else {
+            cart.push(product);
+        }
+
+        localStorage.setItem('cart', JSON.stringify(cart));
+
+        // Actualizar el contador del carrito
+        updateCartCount();
+
+        // Mostrar el mensaje de confirmación para agregar al carrito
+        showAddToCartModal(); // Llama a la función para mostrar el modal
+    }
+
+
+    // Función para actualizar el contador del carrito
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartCount = document.getElementById('cartCount');
+        
+        const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+        cartCount.innerText = totalCount;
+    }
+
+    // Al cargar la página, actualizar el contador del carrito
+    window.onload = function() {
+        updateCartCount();
+    };
+</script>
+
+
+  
+
+
+
+    <footer class="bg-elegida-red text-white py-2 px-4">
+        <div class="container mx-auto">
+            <div class="text-center">
+                <!-- Fila de Redes Sociales -->
+                <div class="flex justify-center flex-wrap mb-0"> 
+                    <a href="#" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                    <a href="#" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+    
+                <!-- Fila de Contacto -->
+                <div class="flex justify-center flex-wrap mb-0"> 
+                    <a href="mailto:info@laelegida.com" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                    <a href="tel:+1234567890" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-phone-alt"></i>
+                    </a>
+                    <a href="https://www.google.com/maps" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </a>
+                </div>
+    
+                <!-- Derechos Reservados -->
+                <div>
+                    <p class="text-sm">&copy; 2024 La Elegida. Todos los derechos reservados.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const carousel = document.getElementById('carousel');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+      
+        // Cantidad total de imágenes
+        const totalItems = carousel.children.length;
+        // Índice del carrusel actual
+        let currentIndex = 0;
+      
+        function updateCarouselPosition() {
+          // Calcula la posición a la que se debe desplazar el carrusel
+          const offset = -currentIndex * 100;
+          carousel.style.transform = `translateX(${offset}%)`;
+        }
+      
+        prevBtn.addEventListener('click', () => {
+          // Decrementa el índice, pero asegúrate de que no sea menor que 0
+          currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalItems - 1;
+          updateCarouselPosition();
+        });
+      
+        nextBtn.addEventListener('click', () => {
+          // Incrementa el índice, pero asegúrate de que no exceda el total de imágenes
+          currentIndex = (currentIndex < totalItems - 1) ? currentIndex + 1 : 0;
+          updateCarouselPosition();
+        });
+      </script>
+      
+    </body>
+    </html>
+    

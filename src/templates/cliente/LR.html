@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Elegida - Tienda en línea</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'elegida-red': '#CA0022',
+                        'elegida-orange': '#F18F00',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-full bg-gray-100">
+    <header class="bg-elegida-red text-white fixed top-0 left-0 right-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <a href="index.html" class="flex items-center" style="height: 80px; width: 200px;">
+                    <img src="/src/static/assets/img/logo-blanco.png" alt="La Elegida" class="h-full w-full object-contain">
+                </a>
+                <div class="flex items-center space-x-4">
+                    <button id="profileButton" 
+                            class="bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full p-2 border border-white" 
+                            aria-label="Perfil de usuario" 
+                            onclick="window.location.href='LR.html';">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <!-- Botón de menú para dispositivos móviles -->
+                    <button id="menuToggle" class="md:hidden p-2 border border-white bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full">
+                        <i class="fas fa-bars"></i> <!-- Ícono de menú hamburguesa -->
+                    </button>
+
+                    <!-- Botón de menú para pantallas grandes -->
+                    <button id="menuToggleDesktop" class="hidden md:block p-2 border border-white bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full">
+                        <i class="fas fa-bars"></i> <!-- Ícono de menú hamburguesa -->
+                    </button>
+                </div>
+            </div>
+            <div class="flex flex-col py-4 md:flex-row md:items-center md:justify-between md:space-x-4">
+                <div class="relative flex-grow">
+                    <input type="search" placeholder="Buscar productos..." class="w-full bg-white rounded-full py-2 pl-4 pr-10 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-elegida-red focus:ring-opacity-50" aria-label="Buscar productos">
+                    <!-- Botón de lupa al lado del input -->
+                    <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-100 transition-colors duration-200 rounded-full p-2" aria-label="Buscar">
+                        <i class="fas fa-search text-black"></i> <!-- Ícono de lupa negro -->
+                    </button>
+                </div>
+                <a href="cart.html" class="relative mt-4 md:mt-0 flex items-center justify-center bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full p-2 border border-white" aria-label="Carrito de compras">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cartCount" class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold border border-white rounded px-2 py-1 transform translate-x-1/2 -translate-y-1/2">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+   
+    <!-- Menú hamburguesa -->
+    <nav id="hamburgerMenu" class="fixed inset-y-0 right-0 transform translate-x-full transition-transform duration-300 ease-in-out bg-white w-64 p-6 overflow-y-auto z-50 md:hidden">
+        <button id="closeMenu" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" aria-label="Cerrar menú">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mt-8 space-y-4">
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Tés</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Sopas Instantáneas</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Snacks Salados</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Bebidas Frías</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Bebidas Calientes</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Chocolates y Dulces</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Galletas y Pasteles</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Snacks Saludables</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Aperitivos y Dips</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Ofertas Especiales</a></li>
+        </ul>
+    </nav>
+
+    <script>
+        // Obtener referencias a los elementos
+        const menuToggle = document.getElementById('menuToggle');
+        const hamburgerMenu = document.getElementById('hamburgerMenu');
+        const closeMenu = document.getElementById('closeMenu');
+    
+        // Función para abrir el menú
+        menuToggle.addEventListener('click', function() {
+            hamburgerMenu.classList.remove('translate-x-full'); // Eliminar la clase para mostrar el menú
+        });
+    
+        // Función para cerrar el menú
+        closeMenu.addEventListener('click', function() {
+            hamburgerMenu.classList.add('translate-x-full'); // Añadir la clase para ocultar el menú
+        });
+    
+        // Cerrar el menú al hacer clic en cualquier enlace
+        const menuItems = hamburgerMenu.querySelectorAll('a');
+        menuItems.forEach(item => {
+            item.addEventListener('click', () => {
+                hamburgerMenu.classList.add('translate-x-full'); // Oculta el menú al seleccionar un elemento
+            });
+        });
+    </script>
+
+    <main class="flex items-center justify-center min-h-screen px-4 bg-gray-100 pt-64">
+        <div class="w-full max-w-lg">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="flex">
+                    <button id="loginTab" class="w-1/2 py-4 text-center font-medium text-gray-600 bg-gray-100 focus:outline-none">Iniciar Sesión</button>
+                    <button id="registerTab" class="w-1/2 py-4 text-center font-medium text-gray-600 bg-white focus:outline-none">Registrarse</button>
+                </div>
+                <div id="loginContent" class="space-y-3.5 p-2 border border-red-500 rounded-md">
+                    <h1 class="text-3xl font-bold text-center text-gray-800 mb-0">Iniciar Sesión</h1>
+                    <form class="space-y-6">
+                        <div class="space-y-3">
+                            <label for="email" class="block text-lg font-medium text-gray-700">Correo Electrónico</label>
+                            <input id="email" type="email" placeholder="correo@ejemplo.com" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required="">
+                        </div>
+                        <div class="space-y-3">
+                            <label for="password" class="block text-lg font-medium text-gray-700">Contraseña</label>
+                            <input id="password" type="password" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" placeholder="Ingresa tu contraseña" required="">
+                        </div>
+                        <button type="submit" class="w-full bg-elegida-red hover:bg-red-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                            Iniciar Sesión
+                        </button>
+                    </form>                    
+                    <div class="relative my-6">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-gray-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-2 bg-white text-gray-500">O continúa con</span>
+                        </div>
+                    </div>
+                    <button onclick="handleGoogleSignIn()" class="w-full bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 font-bold py-3 px-4 rounded flex items-center justify-center focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                        <div class="flex items-center">
+                            <i class="fab fa-google mr-4"></i> <!-- Mayor margen derecho -->
+                            <span>Iniciar sesión con Google</span>
+                        </div>
+                    </button>                                       
+                </div>                                
+            </div>                
+            <div id="registerContent" class="space-y-3 p-2 border border-red-500">
+                <h1 class="text-3xl font-bold text-center text-gray-800 mb-0">Registrarse</h1> 
+                <form class="space-y-3">
+                    <div class="space-y-2">
+                        <label for="register-email" class="block text-lg font-medium text-gray-700">Correo Electrónico</label>
+                        <input id="register-email" type="email" placeholder="correo@ejemplo.com" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required="">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="register-password" class="block text-lg font-medium text-gray-700">Contraseña</label>
+                        <input id="register-password" type="password" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" placeholder="Ingresa una contraseña" minlength="8" required="">
+                        <small class="text-gray-600">La contraseña debe tener al menos 8 caracteres.</small>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="confirm-password" class="block text-lg font-medium text-gray-700">Confirmar Contraseña</label>
+                        <input id="confirm-password" type="password" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required="">
+                    </div>
+                    <button type="submit" class="w-full bg-elegida-red hover:bg-red-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                        Registrarse
+                    </button>
+                </form>                    
+                <div class="relative my-4">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-white text-gray-500">O regístrate con</span>
+                    </div>
+                </div>
+                <button onclick="handleGoogleSignIn()" class="w-full bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 font-bold py-3 px-4 rounded flex items-center justify-center focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                    <div class="flex items-center">
+                        <i class="fab fa-google mr-4"></i> <!-- Icono de Google -->
+                        <span>Registrarse con Google</span>
+                    </div>
+                </button>                
+            </div>                                
+        </div>
+    </main>
+    
+    
+    <script>
+        function handleGoogleSignIn() {
+            // Implement Google Sign-In logic here
+            console.log("Google Sign-In clicked");
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginTab = document.getElementById('loginTab');
+            const registerTab = document.getElementById('registerTab');
+            const loginContent = document.getElementById('loginContent');
+            const registerContent = document.getElementById('registerContent');
+    
+            // Establecer el estado inicial
+            loginTab.classList.add('bg-white', 'border', 'border-red-500');  // Tab de inicio de sesión activo
+            registerTab.classList.add('bg-white'); // Tab de registro inactivo (blanco)
+    
+            // Mostrar solo el contenido de inicio de sesión al cargar
+            loginContent.classList.remove('hidden');
+            registerContent.classList.add('hidden');
+    
+            loginTab.addEventListener('click', function() {
+                // Cambiar el estilo del tab de inicio de sesión
+                loginTab.classList.remove('bg-gray-300');
+                loginTab.classList.add('bg-white', 'border', 'border-red-500');
+    
+                // Cambiar el estilo del tab de registro
+                registerTab.classList.remove('bg-white', 'border', 'border-red-500');
+                registerTab.classList.add('bg-white'); // Cambiado a blanco
+    
+                // Mostrar el contenido de inicio de sesión
+                loginContent.classList.remove('hidden');
+                // Ocultar el contenido de registro
+                registerContent.classList.add('hidden');
+            });
+    
+            registerTab.addEventListener('click', function() {
+                // Cambiar el estilo del tab de registro
+                registerTab.classList.remove('bg-white');
+                registerTab.classList.add('bg-white', 'border', 'border-red-500');
+    
+                // Cambiar el estilo del tab de inicio de sesión
+                loginTab.classList.remove('bg-white', 'border', 'border-red-500');
+                loginTab.classList.add('bg-white'); // Cambiado a blanco
+    
+                // Mostrar el contenido de registro
+                registerContent.classList.remove('hidden');
+                // Ocultar el contenido de inicio de sesión
+                loginContent.classList.add('hidden');
+            });
+        });
+    </script>     
+<footer class="bg-elegida-red text-white py-2 px-4">
+    <div class="container mx-auto">
+        <div class="text-center">
+            <!-- Fila de Redes Sociales -->
+            <div class="flex justify-center flex-wrap mb-0"> 
+                <a href="#" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+
+            <!-- Fila de Contacto -->
+            <div class="flex justify-center flex-wrap mb-0"> 
+                <a href="mailto:info@laelegida.com" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+1234567890" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+                <a href="https://www.google.com/maps" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-map-marker-alt"></i>
+                </a>
+            </div>
+
+            <!-- Derechos Reservados -->
+            <div>
+                <p class="text-sm">&copy; 2024 La Elegida. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const carousel = document.getElementById('carousel');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+  
+    // Cantidad total de imágenes
+    const totalItems = carousel.children.length;
+    // Índice del carrusel actual
+    let currentIndex = 0;
+  
+    function updateCarouselPosition() {
+      // Calcula la posición a la que se debe desplazar el carrusel
+      const offset = -currentIndex * 100;
+      carousel.style.transform = `translateX(${offset}%)`;
+    }
+  
+    prevBtn.addEventListener('click', () => {
+      // Decrementa el índice, pero asegúrate de que no sea menor que 0
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalItems - 1;
+      updateCarouselPosition();
+    });
+  
+    nextBtn.addEventListener('click', () => {
+      // Incrementa el índice, pero asegúrate de que no exceda el total de imágenes
+      currentIndex = (currentIndex < totalItems - 1) ? currentIndex + 1 : 0;
+      updateCarouselPosition();
+    });
+  </script>
+
+<script>
+    // Función para agregar producto al carrito
+    function addToCart(productName, price, imageUrl) {
+        const product = {
+            name: productName,
+            price: price,
+            imageUrl: imageUrl,
+            quantity: 1
+        };
+        
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const existingProduct = cart.find(item => item.name === productName);
+        
+        if (existingProduct) {
+            existingProduct.quantity += 1;
+        } else {
+            cart.push(product);
+        }
+        
+        localStorage.setItem('cart', JSON.stringify(cart));
+        alert(`${productName} ha sido agregado al carrito. Precio: Bs. ${price}`);
+
+        // Actualizar el contador del carrito
+        updateCartCount();
+    }
+
+    // Función para actualizar el contador del carrito
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartCount = document.getElementById('cartCount');
+        
+        const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+        cartCount.innerText = totalCount;
+    }
+
+    // Al cargar la página, actualizar el contador del carrito
+    window.onload = function() {
+        updateCartCount();
+    };
+</script>
+
+  
+</body>
+</html>
