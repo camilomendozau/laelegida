@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es" class="h-full">
 
 <head>
@@ -45,14 +45,14 @@
     <header class="bg-elegida-red text-white fixed top-0 left-0 right-0 z-50 shadow-lg">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between py-4">
-                <a href="http://127.0.0.1:5000/" class="flex items-center" style="height: 80px; width: 200px;">
+                <a href="/" class="flex items-center" style="height: 80px; width: 200px;">
                     <img src="{{ url_for('static', filename='assets/img/logo-blanco.png') }}" alt="La Elegida"
                         class="h-full w-full object-contain">
                 </a>
                 <div class="flex items-center space-x-4">
                     <button id="profileButton"
                         class="bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full p-2 border border-white"
-                        aria-label="Perfil de usuario" onclick="window.location.href='LR.html';">
+                        aria-label="Perfil de usuario" onclick="window.location.href='/login';">
                         <i class="fas fa-user"></i>
                     </button>
                     <button id="menuToggle"
@@ -76,7 +76,7 @@
                         <i class="fas fa-search text-black"></i>
                     </button>
                 </div>
-                <a href="http://127.0.0.1:5000/carrito"
+                <a href="/carrito"
                     class="relative mt-4 md:mt-0 flex items-center justify-center bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full p-2 border border-white"
                     aria-label="Carrito de compras">
                     <i class="fas fa-shopping-cart"></i>
@@ -149,23 +149,22 @@
                 hamburgerMenu.classList.add('translate-x-full'); // Oculta el menú al seleccionar un elemento
             });
         });
-    </script> -->
-    {% extends "base.html" %} {%block content%}
+    </script>
     <main class="flex-grow mt-32 container mx-auto px-4">
         <section class="mb-12 mt-32">
             <div class="relative w-full max-w-xl mx-auto">
                 <div class="overflow-hidden">
                     <div id="carousel" class="flex transition-transform duration-300 ease-in-out">
                         <div class="w-full flex-shrink-0 flex justify-center p-1">
-                            <img src="{{ url_for('static', filename='assets/img/products/carrusel/imagen-del-carrusel-1.jpg') }}"
+                            <img src="{{ url_for('static', filename='assets/img/products/carrusel/Scan0001.jpg') }}"
                                 alt="Producto 1" class="w-64 h-64 rounded-lg object-cover">
                         </div>
                         <div class="w-full flex-shrink-0 flex justify-center p-1">
-                            <img src="{{ url_for('static', filename='assets/img/products/carrusel/imagen-del-carrusel-2.jpg') }}"
+                            <img src="{{ url_for('static', filename='assets/img/products/carrusel/Scan0002.jpg') }}"
                                 alt="Producto 2" class="w-64 h-64 rounded-lg object-cover">
                         </div>
                         <div class="w-full flex-shrink-0 flex justify-center p-1">
-                            <img src="{{ url_for('static', filename='assets/img/products/carrusel/imagen-del-carrusel-3.jpg') }}"
+                            <img src="{{ url_for('static', filename='assets/img/products/carrusel/Scan0003.jpg') }}"
                                 alt="Producto 3" class="w-64 h-64 rounded-lg object-cover">
                         </div>
                     </div>
@@ -194,34 +193,34 @@
                 <!-- Producto 1 -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                     <div class="relative">
-                        <img src="{{ url_for('static', filename='assets/img/products/descarga.jpg') }}" alt="Nescafé"
+                        <img src="{{ url_for('static', filename='assets/img/products/Scan0002.jpg') }}" alt="Nescafé"
                             class="w-full h-64 object-contain">
                         <div
                             class="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded-md text-sm font-semibold">
                             Nuevo</div>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">Nescafé</h3>
-                        <p class="text-2xl font-bold text-red-600 mb-4">19.99 Bs.</p>
+                        <h3 class="text-xl font-semibold mb-2">Chicha de Mani</h3>
+                        <p class="text-2xl font-bold text-red-600 mb-4">6 Bs.</p>
 
                         <!-- Botón Comprar ahora -->
                         <button
                             class="w-full bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-colors duration-200 flex items-center justify-center mb-2"
-                            onclick="buyNow('Nescafé', 19.99, '/src/static/assets/img/products/descarga.jpg'); showConfirmationModal();">
+                            onclick="buyNow('Chicha de Mani', 6, '/src/static/assets/img/products/Scan0002.jpg'); showConfirmationModal();">
                             Comprar ahora
                         </button>
 
                         <!-- Botón Ver detalles -->
                         <button
                             class="w-full bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition-colors duration-200 flex items-center justify-center mb-2"
-                            onclick="handleProductDetails('Nescafé', 19.99, '/src/static/assets/img/products/descarga.jpg', 'Café instantáneo de alta calidad', ['100% puro café', 'Aroma intenso', 'Fácil preparación'])">
+                            onclick="handleProductDetails('Chicha de Mani', 6, '/src/static/assets/img/products/Scan0002.jpg', 'Café instantáneo de alta calidad', ['100% puro café', 'Aroma intenso', 'Fácil preparación'])">
                             Ver detalles
                         </button>
 
                         <!-- Botón Agregar al carrito -->
                         <button
                             class="w-full bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-200 flex items-center justify-center"
-                            onclick="addToCart('Nescafé', 19.99, '/src/static/assets/img/products/descarga.jpg'); showAddToCartModal();">
+                            onclick="addToCart('Chicha de Mani', 6, '/src/static/assets/img/products/Scan0002.jpg'); showAddToCartModal();">
                             Agregar al carrito
                         </button>
                     </div>
@@ -230,19 +229,19 @@
                 <!-- Producto 2: Ajinomen -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                     <div class="relative">
-                        <img src="{{ url_for('static', filename='assets/img/products/descarga (1).jpg') }}"
+                        <img src="{{ url_for('static', filename='assets/img/products/Scan0003.jpg') }}"
                             alt="Ajinomen" class="w-full h-64 object-contain">
                         <div
                             class="absolute top-2 right-2 bg-yellow-500 text-white px-2 py-1 rounded-md text-sm font-semibold">
                             Destacado</div>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">Ajinomen</h3>
-                        <p class="text-2xl font-bold text-red-600 mb-4">Bs. 15.99</p>
+                        <h3 class="text-xl font-semibold mb-2">Multicereal</h3>
+                        <p class="text-2xl font-bold text-red-600 mb-4">6 Bs.</p>
 
                         <!-- Botón Comprar ahora -->
                         <button
-                            onclick="buyNow('Ajinomen', 15.99, '/src/static/assets/img/products/descarga (1).jpg'); showConfirmationModal();"
+                            onclick="buyNow('Multicereal', 6, '/src/static/assets/img/products/Scan0003.jpg'); showConfirmationModal();"
                             class="w-full bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-colors duration-200 flex items-center justify-center mb-2">
                             Comprar ahora
                         </button>
@@ -250,13 +249,13 @@
                         <!-- Botón Ver detalles -->
                         <button
                             class="w-full bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition-colors duration-200 flex items-center justify-center mb-2"
-                            onclick="handleProductDetails('Ajinomen', 15.99, '/src/static/assets/img/products/descarga (1).jpg', 'Fideos instantáneos sabrosos', ['Rápido de preparar', 'Ideal para cualquier momento', 'Sabor auténtico'])">
+                            onclick="handleProductDetails('Multicereal', 6, '/src/static/assets/img/products/Scan0003.jpg', 'Fideos instantáneos sabrosos', ['Rápido de preparar', 'Ideal para cualquier momento', 'Sabor auténtico'])">
                             Ver detalles
                         </button>
 
                         <!-- Botón Agregar al carrito -->
                         <button
-                            onclick="addToCart('Ajinomen', 15.99, '/src/static/assets/img/products/descarga (1).jpg'); showAddToCartModal();"
+                            onclick="addToCart('Multicereal', 6, '/src/static/assets/img/products/Scan0003.jpg'); showAddToCartModal();"
                             class="w-full bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-200 flex items-center justify-center">
                             Agregar al carrito
                         </button>
@@ -267,7 +266,7 @@
                 <!-- Producto 3: Fideos en sachet La Estrella -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                     <div class="relative">
-                        <img src="{{ url_for('static', filename='assets/img/products/descarga (2).jpg') }}"
+                        <img src="{{ url_for('static', filename='assets/img/products/Scan0004.jpg') }}"
                             alt="Fideos en sachet marca La Estrella" class="w-full h-64 object-contain">
                         <div
                             class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-md text-sm font-semibold">
@@ -275,12 +274,12 @@
                         </div>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">Fideos en sachet La Estrella</h3>
-                        <p class="text-2xl font-bold text-red-600 mb-4">Bs. 30.00</p>
+                        <h3 class="text-xl font-semibold mb-2">Api Morado</h3>
+                        <p class="text-2xl font-bold text-red-600 mb-4">6 Bs.</p>
 
                         <!-- Botón Comprar ahora -->
                         <button
-                            onclick="buyNow('Fideos en sachet La Estrella', 30.00, '/src/static/assets/img/products/descarga (2).jpg'); showConfirmationModal();"
+                            onclick="buyNow('Api Morado', 6, '/src/static/assets/img/products/Scan0004.jpg'); showConfirmationModal();"
                             class="w-full bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-colors duration-200 flex items-center justify-center mb-2">
                             Comprar ahora
                         </button>
@@ -288,13 +287,13 @@
                         <!-- Botón Ver detalles -->
                         <button
                             class="w-full bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition-colors duration-200 flex items-center justify-center mb-2"
-                            onclick="handleProductDetails('Fideos en sachet La Estrella', 30.00, '/src/static/assets/img/products/descarga (2).jpg', 'Fideos instantáneos de alta calidad en práctico sachet, listos en minutos.', ['Fácil preparación', 'Sabor delicioso', 'Ideal para comidas rápidas'])">
+                            onclick="handleProductDetails('Api Morado', 6, '/src/static/assets/img/products/Scan0004.jpg', 'Fideos instantáneos de alta calidad en práctico sachet, listos en minutos.', ['Fácil preparación', 'Sabor delicioso', 'Ideal para comidas rápidas'])">
                             Ver detalles
                         </button>
 
                         <!-- Botón Agregar al carrito -->
                         <button
-                            onclick="addToCart('Fideos en sachet La Estrella', 30.00, '/src/static/assets/img/products/descarga (2).jpg'); showAddToCartModal();"
+                            onclick="addToCart('Api Morado', 6, '/src/static/assets/img/products/Scan0004.jpg'); showAddToCartModal();"
                             class="w-full bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-200 flex items-center justify-center">
                             Agregar al carrito
                         </button>
@@ -305,7 +304,7 @@
                 <!-- Producto 4: Leche en polvo marca Pil -->
                 <div class="bg-white rounded-lg shadow-lg overflow-hidden">
                     <div class="relative">
-                        <img src="{{ url_for('static', filename='assets/img/products/descarga (3).jpg') }}"
+                        <img src="{{ url_for('static', filename='assets/img/products/Scan0001.jpg') }}"
                             alt="Leche en polvo marca Pil" class="w-full h-64 object-contain">
                         <div
                             class="absolute top-2 right-2 bg-purple-600 text-white px-2 py-1 rounded-md text-sm font-semibold">
@@ -313,26 +312,26 @@
                         </div>
                     </div>
                     <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">Leche en polvo marca Pil</h3>
-                        <p class="text-2xl font-bold text-red-600 mb-4">Bs. 18.75</p>
+                        <h3 class="text-xl font-semibold mb-2">Lawa de Choclo</h3>
+                        <p class="text-2xl font-bold text-red-600 mb-4">6 Bs.</p>
 
                         <!-- Botón Comprar ahora -->
                         <button
                             class="w-full bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-colors duration-200 flex items-center justify-center mb-2"
-                            onclick="buyNow('Leche en polvo marca Pil', 18.75, '/src/static/assets/img/products/descarga (3).jpg'); showConfirmationModal();">
+                            onclick="buyNow('Lawa de Choclo', 6, '/src/static/assets/img/products/Scan0001.jpg'); showConfirmationModal();">
                             Comprar ahora
                         </button>
 
                         <!-- Botón Ver detalles -->
                         <button
                             class="w-full bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition-colors duration-200 flex items-center justify-center mb-2"
-                            onclick="handleProductDetails('Leche en polvo marca Pil', 18.75, '/src/static/assets/img/products/descarga (3).jpg', 'Leche en polvo de alta calidad, ideal para la preparación de bebidas y recetas.', ['Rica en nutrientes', 'Fácil disolución', 'Perfecta para el desayuno'])">
+                            onclick="handleProductDetails('Lawa de Choclo', 6, '/src/static/assets/img/products/Scan0001.jpg', 'Leche en polvo de alta calidad, ideal para la preparación de bebidas y recetas.', ['Rica en nutrientes', 'Fácil disolución', 'Perfecta para el desayuno'])">
                             Ver detalles
                         </button>
 
                         <!-- Botón Agregar al carrito -->
                         <button
-                            onclick="addToCart('Leche en polvo marca Pil', 18.75, '/src/static/assets/img/products/descarga (3).jpg'); showAddToCartModal();"
+                            onclick="addToCart('Lawa de Choclo', 6, '/src/static/assets/img/products/Scan0001.jpg'); showAddToCartModal();"
                             class="w-full bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-200 flex items-center justify-center">
                             Agregar al carrito
                         </button>
@@ -361,74 +360,63 @@
                             onclick="closeModal()">&times;</span>
 
                     </div>
-
-
-
-
-
-
-
-
-
-                    <script>
-                        // Función para mostrar la ventana emergente
-                        function showConfirmationModal() {
-                            const confirmationModal = document.getElementById('confirmationModal');
-                            confirmationModal.style.display = 'flex'; // Mostrar el modal
-                        }
-
-                        // Función para cerrar la ventana emergente
-                        function closeModal() {
-                            const confirmationModal = document.getElementById('confirmationModal');
-                            confirmationModal.style.display = 'none'; // Ocultar el modal
-                        }
-
-                        // Función para "Seguir explorando"
-                        function continueExploring() {
-                            closeModal(); // Cerrar el modal
-                        }
-
-                        // Función para redirigir al carrito
-                        function goToCart() {
-                            closeModal(); // Cerrar el modal
-                            window.location.href = 'http://127.0.0.1:5000/carrito'; // Redirigir al carrito
-                        }
-
-                        // Agregar evento para cerrar el modal al hacer clic fuera de él
-                        window.onclick = function (event) {
-                            const confirmationModal = document.getElementById('confirmationModal');
-                            if (event.target === confirmationModal) {
-                                closeModal();
-                            }
-                        }
-
-
-
-                    </script>
-
-
-                    <style>
-                        /* Estilos para centrar el modal */
-                        #confirmationModal {
-                            display: none;
-                            /* Oculto por defecto */
-                            align-items: center;
-                            justify-content: center;
-                            position: fixed;
-                            top: 0;
-                            left: 0;
-                            width: 100%;
-                            height: 100%;
-                            background-color: rgba(0, 0, 0, 0.5);
-                            /* Fondo semi-transparente */
-                            z-index: 50;
-                        }
-                    </style>
-
         </section>
-
     </main>
-    <!-- <script>
+    <script>
+        // Función para mostrar la ventana emergente
+        function showConfirmationModal() {
+            const confirmationModal = document.getElementById('confirmationModal');
+            confirmationModal.style.display = 'flex'; // Mostrar el modal
+        }
+
+        // Función para cerrar la ventana emergente
+        function closeModal() {
+            const confirmationModal = document.getElementById('confirmationModal');
+            confirmationModal.style.display = 'none'; // Ocultar el modal
+        }
+
+        // Función para "Seguir explorando"
+        function continueExploring() {
+            closeModal(); // Cerrar el modal
+        }
+
+        // Función para redirigir al carrito
+        function goToCart() {
+            closeModal(); // Cerrar el modal
+            window.location.href = 'http://127.0.0.1:5000/carrito'; // Redirigir al carrito
+        }
+
+        // Agregar evento para cerrar el modal al hacer clic fuera de él
+        window.onclick = function (event) {
+            const confirmationModal = document.getElementById('confirmationModal');
+            if (event.target === confirmationModal) {
+                closeModal();
+            }
+        }
+
+
+
+    </script>
+
+
+    <style>
+        /* Estilos para centrar el modal */
+        #confirmationModal {
+            display: none;
+            /* Oculto por defecto */
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Fondo semi-transparente */
+            z-index: 50;
+        }
+    </style>
+    <script>
         function buyNow(productName, price, imageUrl) {
             // Crear el objeto del producto con nombre, precio e imagen
             const product = {
@@ -459,11 +447,6 @@
 
             // Ya no redirigir al carrito, simplemente se queda en la misma página
         }
-
-
-
-
-
 
         function handleProductDetails(name, price, imageUrl, description, features) {
             // Almacenar los datos del producto en localStorage
@@ -611,4 +594,4 @@
 
 </body>
 
-</html> -->
+</html>
