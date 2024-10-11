@@ -44,14 +44,14 @@
     <header class="bg-elegida-red text-white fixed top-0 left-0 right-0 z-50 shadow-lg">
         <div class="container mx-auto px-4">
             <div class="flex items-center justify-between py-4">
-                <a href="index.html" class="flex items-center" style="height: 80px; width: 200px;">
-                    <img src="/src/static/assets/img/logo-blanco.png" alt="La Elegida" class="h-full w-full object-contain">
+                <a href="/" class="flex items-center" style="height: 80px; width: 200px;">
+                    <img src="/static/assets/img/logo-blanco.png" alt="La Elegida" class="h-full w-full object-contain">
                 </a>
                 <div class="flex items-center space-x-4">
                     <button id="profileButton" 
                             class="bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full p-2 border border-white" 
                             aria-label="Perfil de usuario" 
-                            onclick="window.location.href='LR.html';">
+                            onclick="window.location.href='/login';">
                         <i class="fas fa-user"></i>
                     </button>
                     <button id="menuToggle" class="md:hidden p-2 border border-white bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full">
@@ -69,7 +69,7 @@
                         <i class="fas fa-search text-black"></i>
                     </button>
                 </div>
-                <a href="cart.html" class="relative mt-4 md:mt-0 flex items-center justify-center bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full p-2 border border-white" aria-label="Carrito de compras">
+                <a href="/carrito" class="relative mt-4 md:mt-0 flex items-center justify-center bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full p-2 border border-white" aria-label="Carrito de compras">
                     <i class="fas fa-shopping-cart"></i>
                     <span id="cartCount" class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold border border-white rounded px-2 py-1 transform translate-x-1/2 -translate-y-1/2">0</span>
                 </a>                

@@ -12,6 +12,9 @@ def products():
 @app.route("/login")
 def login():
     return render_template("cliente/login.html")
+@app.route("/producto")
+def producto():
+    return render_template("cliente/producto-detalle.html")
 
 if __name__ == '__main__':
     app.run(debug=True,host="0.0.0.0")
