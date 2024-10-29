@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La Elegida - Tienda en línea</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'elegida-red': '#CA0022',
+                        'elegida-orange': '#F18F00',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            header .container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-full bg-gray-100">
+    <header class="bg-elegida-red text-white fixed top-0 left-0 right-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <a href="/" class="flex items-center" style="height: 80px; width: 200px;">
+                    <img src="/static/assets/img/logo-blanco.png" alt="La Elegida" class="h-full w-full object-contain">
+                </a>
+                <div class="flex items-center space-x-4">
+                    <button id="profileButton" 
+                            class="bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full p-2 border border-white" 
+                            aria-label="Perfil de usuario" 
+                            onclick="window.location.href='/login';">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <!-- Botón de menú para dispositivos móviles -->
+                    <button id="menuToggle" class="md:hidden p-2 border border-white bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full">
+                        <i class="fas fa-bars"></i> <!-- Ícono de menú hamburguesa -->
+                    </button>
+
+                    <!-- Botón de menú para pantallas grandes -->
+                    <button id="menuToggleDesktop" class="hidden md:block p-2 border border-white bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full">
+                        <i class="fas fa-bars"></i> <!-- Ícono de menú hamburguesa -->
+                    </button>
+                </div>
+            </div>
+            <div class="flex flex-col py-4 md:flex-row md:items-center md:justify-between md:space-x-4">
+                <div class="relative flex-grow">
+                    <input type="search" placeholder="Buscar productos..." class="w-full bg-white rounded-full py-2 pl-4 pr-10 text-gray-800 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-elegida-red focus:ring-opacity-50" aria-label="Buscar productos">
+                    <!-- Botón de lupa al lado del input -->
+                    <button class="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-100 transition-colors duration-200 rounded-full p-2" aria-label="Buscar">
+                        <i class="fas fa-search text-black"></i> <!-- Ícono de lupa negro -->
+                    </button>
+                </div>
+                <a href="/carrito" class="relative mt-4 md:mt-0 flex items-center justify-center bg-white bg-opacity-10 hover:bg-opacity-20 transition-colors duration-200 rounded-full p-2 border border-white" aria-label="Carrito de compras">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span id="cartCount" class="absolute top-0 right-0 bg-red-600 text-white text-xs font-bold border border-white rounded px-2 py-1 transform translate-x-1/2 -translate-y-1/2">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+   
+    <!-- Menú hamburguesa -->
+    <nav id="hamburgerMenu" class="fixed inset-y-0 right-0 transform translate-x-full transition-transform duration-300 ease-in-out bg-white w-64 p-6 overflow-y-auto z-50 md:hidden">
+        <button id="closeMenu" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700" aria-label="Cerrar menú">
+            <i class="fas fa-times"></i>
+        </button>
+        <ul class="mt-8 space-y-4">
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Tés</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Sopas Instantáneas</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Snacks Salados</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Bebidas Frías</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Bebidas Calientes</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Chocolates y Dulces</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Galletas y Pasteles</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Snacks Saludables</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Aperitivos y Dips</a></li>
+            <li><a href="#" class="block px-4 py-2 rounded-lg text-gray-700 hover:bg-elegida-red hover:text-white transition-colors duration-200">Ofertas Especiales</a></li>
+        </ul>
+    </nav>
+
+    <main class="flex-grow mt-32 container mx-auto px-4">
+        <div class="bg-white rounded-lg shadow-md p-6 mb-4 mt-32">
+            <h1 class="text-3xl font-bold mb-8 mt-6 text-center">Tu Carrito de Compras</h1>
+            <div id="cartContent">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b">
+                            <th class="text-left font-semibold">Imagen</th>
+                            <th class="text-left font-semibold">Producto</th>
+                            <th class="text-left font-semibold">Precio</th>
+                            <th class="text-center font-semibold">Cantidad</th>
+                            <th class="text-right font-semibold">Total</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="cartItems">
+                        <!-- Aquí se agregarán los productos dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+            <div id="emptyCart" class="text-center text-gray-500 py-4" style="display: none;">
+                <p>Tu carrito está vacío.</p>
+                <button onclick="window.location.href='/'" class="mt-4 border-2 border-orange-500 text-orange-500 px-4 py-2 rounded-full hover:bg-orange-100 transition-colors duration-200">
+                    Explorar productos
+                </button>
+                
+            </div>
+        </div>
+
+        <div class="text-center mt-6 mb-6">
+            <button onclick="clearCart()" class="border-2 border-red-600 text-red-600 px-4 py-2 rounded-full hover:bg-red-100 transition-colors duration-200">
+                Eliminar Todos los Productos
+            </button>
+            
+        </div>
+        
+    
+        <!-- Caja de Subtotal y Total -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-4">
+            <div class="flex justify-between font-semibold">
+                <span>Subtotal</span>
+                <span id="subtotal">0.00 Bs.</span>
+            </div>
+            <hr class="my-2">
+            <div class="flex justify-between font-semibold">
+                <span>Total</span>
+                <span id="total">0.00 Bs.</span>
+            </div>
+        </div>
+
+        <div class="text-center mt-6 mb-6">
+            <button class="border-2 border-green-500 text-green-500 px-4 py-2 rounded-full hover:bg-green-100 transition-colors duration-200">
+                Proceder al pago
+            </button>
+        </div>
+        
+        
+    </main>
+
+    <script>
+        // Función para agregar producto al carrito
+        function addToCart(productName, price, imageUrl) {
+            // Crear el objeto del producto con nombre, precio e imagen
+            const product = {
+                name: productName,
+                price: price,
+                imageUrl: imageUrl,
+                quantity: 1
+            };
+    
+            // Obtener el carrito del localStorage (si existe), de lo contrario crear un array vacío
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+            // Verificar si el producto ya está en el carrito
+            const existingProduct = cart.find(item => item.name === productName);
+    
+            if (existingProduct) {
+                // Si el producto ya existe, incrementar la cantidad
+                existingProduct.quantity += 1;
+            } else {
+                // Si el producto no existe, agregarlo al carrito
+                cart.push(product);
+            }
+    
+            // Guardar el carrito actualizado en localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+    
+            // Actualizar la vista del carrito y el contador
+            updateCartView();
+            updateCartCount();
+        }
+    
+        // Función para eliminar un producto del carrito
+        function removeFromCart(productName) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    
+            // Eliminar el producto del carrito
+            cart = cart.filter(item => item.name !== productName);
+    
+            // Guardar el carrito actualizado en localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+    
+            // Actualizar la vista del carrito y el contador
+            updateCartView();
+            updateCartCount();
+        }
+    
+        // Función para actualizar la vista del carrito
+        function updateCartView() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartItems = document.getElementById('cartItems');
+            const emptyCartMessage = document.getElementById('emptyCart');
+            const subtotalElement = document.getElementById('subtotal');
+            const totalElement = document.getElementById('total');
+            cartItems.innerHTML = '';
+    
+            if (cart.length === 0) {
+                // Mostrar mensaje de carrito vacío
+                emptyCartMessage.style.display = 'block';
+                subtotalElement.innerText = '$0.00';
+                totalElement.innerText = '$0.00';
+                return;
+            } else {
+                emptyCartMessage.style.display = 'none';
+            }
+    
+            let subtotal = 0;
+    
+            cart.forEach(product => {
+                const totalProductPrice = product.price * product.quantity;
+                subtotal += totalProductPrice;
+    
+                // Añadir producto al carrito
+                cartItems.innerHTML += `
+                  <tr class="border-b">
+                    <td><img src="${product.imageUrl}" alt="${product.name}" class="w-16 h-16 object-contain"></td>
+                    <td>${product.name}</td>
+                    <td>${product.price.toFixed(2)}</td>
+                    <td class="text-center">
+    <div class="flex items-center justify-center">
+        <button onclick="changeQuantity('${product.name}', -1)" class="border-2 border-gray-300 px-2 py-1 rounded-full hover:bg-gray-100 transition-colors duration-200">-</button>
+        <span class="border-2 border-gray-300 px-3 py-1 inline-block rounded-full">${product.quantity}</span>
+        <button onclick="changeQuantity('${product.name}', 1)" class="border-2 border-gray-300 px-2 py-1 rounded-full hover:bg-gray-100 transition-colors duration-200">+</button>
+    </div>
+</td>
+
+                    <td class="text-right">${totalProductPrice.toFixed(2)}</td>
+                    <td class="text-right">
+                      <button onclick="removeFromCart('${product.name}')" class="text-red-600">Eliminar</button>
+                    </td>
+                  </tr>
+                `;
+            });
+    
+            // Actualizar subtotal y total
+            subtotalElement.innerText = `${subtotal.toFixed(2)} Bs.`;
+            totalElement.innerText = `${subtotal.toFixed(2)} Bs.`;
+        }
+    
+        // Función para cambiar la cantidad de productos en el carrito
+        function changeQuantity(productName, change) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const product = cart.find(item => item.name === productName);
+    
+            if (product) {
+                product.quantity += change;
+    
+                // Si la cantidad llega a 0, eliminar el producto
+                if (product.quantity <= 0) {
+                    cart = cart.filter(item => item.name !== productName);
+                }
+    
+                // Guardar el carrito actualizado en localStorage
+                localStorage.setItem('cart', JSON.stringify(cart));
+    
+                // Actualizar la vista del carrito y el contador
+                updateCartView();
+                updateCartCount();
+            }
+        }
+    
+        // Función para vaciar el carrito
+        function clearCart() {
+            localStorage.removeItem('cart');
+            updateCartView();
+            updateCartCount();
+        }
+    
+        // Función para actualizar el contador del carrito
+        function updateCartCount() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const cartCount = document.getElementById('cartCount');
+    
+            // Calcular la cantidad total de productos en el carrito
+            const totalCount = cart.reduce((acc, item) => acc + item.quantity, 0);
+            cartCount.innerText = totalCount;
+        }
+    
+        // Al cargar la página, actualizar la vista del carrito y el contador
+        window.onload = function() {
+            updateCartView();
+            updateCartCount();
+        };
+    </script>
+    
+    
+    
+<footer class="bg-elegida-red text-white py-2 px-4">
+    <div class="container mx-auto">
+        <div class="text-center">
+            <!-- Fila de Redes Sociales -->
+            <div class="flex justify-center flex-wrap mb-0"> 
+                <a href="#" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="#" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+
+            <!-- Fila de Contacto -->
+            <div class="flex justify-center flex-wrap mb-0"> 
+                <a href="mailto:info@laelegida.com" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="tel:+1234567890" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-phone-alt"></i>
+                </a>
+                <a href="https://www.google.com/maps" class="inline-block bg-white text-elegida-orange hover:bg-elegida-orange hover:text-white transition-colors duration-200 rounded-full p-3 m-2" style="width: 50px; height: 50px; display: flex; align-items: center; justify-content: center;">
+                    <i class="fas fa-map-marker-alt"></i>
+                </a>
+            </div>
+
+            <!-- Derechos Reservados -->
+            <div>
+                <p class="text-sm">&copy; 2024 La Elegida. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const carousel = document.getElementById('carousel');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+  
+    // Cantidad total de imágenes
+    const totalItems = carousel.children.length;
+    // Índice del carrusel actual
+    let currentIndex = 0;
+  
+    function updateCarouselPosition() {
+      // Calcula la posición a la que se debe desplazar el carrusel
+      const offset = -currentIndex * 100;
+      carousel.style.transform = `translateX(${offset}%)`;
+    }
+  
+    prevBtn.addEventListener('click', () => {
+      // Decrementa el índice, pero asegúrate de que no sea menor que 0
+      currentIndex = (currentIndex > 0) ? currentIndex - 1 : totalItems - 1;
+      updateCarouselPosition();
+    });
+  
+    nextBtn.addEventListener('click', () => {
+      // Incrementa el índice, pero asegúrate de que no exceda el total de imágenes
+      currentIndex = (currentIndex < totalItems - 1) ? currentIndex + 1 : 0;
+      updateCarouselPosition();
+    });
+  </script>
+  
+</body>
+</html>
