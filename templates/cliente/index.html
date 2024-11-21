@@ -8,7 +8,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <link rel="stylesheet" href="/static/css/mission-button.css">
 
     <script>
         tailwind.config = {
@@ -155,21 +154,33 @@
     </script>
     <main class="flex-grow mt-32 container mx-auto px-4">
 
-        <div id="mission-button" class="fixed bottom-4 right-4 z-50">
-            <button id="missionToggle" class="bg-red-600 text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg hover:bg-red-700 transition-colors duration-200">
-                <span class="text-2xl font-bold">!</span>
-            </button>
-        </div>
+        <!-- Mission button -->
+    <div id="mission-button" class="fixed bottom-4 right-4 z-50">
+        <button id="missionToggle" class="bg-red-600 text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg hover:bg-red-700 transition-colors duration-200">
+            <span class="text-2xl font-bold">!</span>
+        </button>
+    </div>
 
-        <!-- Mission popup -->
-        <div id="missionPopup" class="fixed bottom-24 right-4 bg-white rounded-lg shadow-xl p-4 hidden z-50 w-64">
-            <h3 class="text-lg font-bold mb-2">Misiones</h3>
-            <ul id="missionList" class="space-y-2">
-                <!-- Missions will be dynamically added here -->
-            </ul>
-            <p id="noMissions" class="text-gray-500 hidden">No hay misiones disponibles en este momento.</p>
-            <p id="nextMissions" class="text-sm text-gray-500 mt-2 hidden">Próximas misiones en: <span id="countdown"></span></p>
+    <!-- Mission popup -->
+    <div id="missionPopup" class="fixed bottom-24 right-4 bg-white rounded-lg shadow-xl p-4 hidden z-50 w-80">
+        <h3 class="text-lg font-bold mb-2">Misiones</h3>
+        <div id="missionList" class="grid grid-cols-2 gap-2 mb-4">
+            <!-- Missions will be dynamically added here -->
         </div>
+        <div id="missionSubmission" class="space-y-2 hidden">
+            <h4 class="font-semibold">Enviar comprobante</h4>
+            <p id="selectedMission" class="text-sm text-gray-600"></p>
+            <div class="flex items-center space-x-2">
+                <input type="file" id="imageInput" accept="image/*" class="hidden">
+                <label for="imageInput" class="cursor-pointer bg-blue-500 text-white px-3 py-2 rounded-md hover:bg-blue-600 transition-colors">Subir imagen</label>
+                <span id="fileName" class="text-sm text-gray-600"></span>
+            </div>
+            <button id="submitMission" class="w-full bg-green-500 text-white px-3 py-2 rounded-md hover:bg-green-600 transition-colors">Enviar</button>
+        </div>
+        <p id="noMissions" class="text-gray-500 hidden">No hay misiones disponibles en este momento.</p>
+        <p id="nextMissions" class="text-sm text-gray-500 mt-2 hidden">Próximas misiones en: <span id="countdown"></span></p>
+    </div>
+
 
         <section class="mb-12 mt-32">
             <div class="relative w-full max-w-xl mx-auto">
@@ -206,181 +217,46 @@
             </div>
         </section>
 
-        <section class="productos-destacados py-12">
-            <h2 class="text-3xl font-bold text-gray-800 mb-6 text-center">Productos Destacados</h2>
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-                <!-- Producto 1 -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="relative">
-                        <img src="{{ url_for('static', filename='assets/img/products/Scan0002.jpg') }}" alt="Nescafé"
-                            class="w-full h-64 object-contain">
-                        <div
-                            class="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded-md text-sm font-semibold">
-                            Nuevo</div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">Chicha de Mani</h3>
-                        <p class="text-2xl font-bold text-red-600 mb-4">6.00 Bs.</p>
 
-                        <!-- Botón Comprar ahora -->
-                        <button
-                            class="w-full bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-colors duration-200 flex items-center justify-center mb-2"
-                            onclick="buyNow('Chicha de Mani', 6, '/static/assets/img/products/Scan0002.jpg'); showConfirmationModal();">
-                            Comprar ahora
-                        </button>
 
-                        <!-- Botón Ver detalles -->
-                        <button
-                            class="w-full bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition-colors duration-200 flex items-center justify-center mb-2"
-                            onclick="handleProductDetails('Chicha de Mani', 6, '/static/assets/img/products/Scan0002.jpg', 'Café instantáneo de alta calidad', ['100% puro café', 'Aroma intenso', 'Fácil preparación'])">
-                            Ver detalles
-                        </button>
 
-                        <!-- Botón Agregar al carrito -->
-                        <button
-                            class="w-full bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-200 flex items-center justify-center"
-                            onclick="addToCart('Chicha de Mani', 6, '/static/assets/img/products/Scan0002.jpg'); showAddToCartModal();">
-                            Agregar al carrito
-                        </button>
-                    </div>
+
+        <!-- Mission button -->
+        <div id="mission-button" class="fixed bottom-4 right-4 z-50">
+            <a href="/misiones" class="bg-red-600 text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg hover:bg-red-700 transition-colors duration-200">
+                <span class="text-2xl font-bold">!</span>
+            </a>
+            
+            
+        </div>
+
+        <!-- Mission popup -->
+        <div id="missionPopup" class="fixed bottom-24 right-4 bg-white rounded-lg shadow-xl p-4 hidden z-50 w-80">
+            <h3 class="text-lg font-bold mb-2">Misiones</h3>
+            <ul id="missionList" class="space-y-2 mb-4">
+                <!-- Missions will be dynamically added here -->
+            </ul>
+            <div id="missionSubmission" class="space-y-2 hidden">
+                <h4 class="font-semibold">Enviar comprobante</h4>
+                <p id="selectedMission" class="text-sm text-gray-600"></p>
+                <div class="flex items-center space-x-2">
+                    <input type="file" id="imageInput" accept="image/*" class="hidden">
+                    <label for="imageInput" class="cursor-pointer bg-blue-500 text-white px-3 py-2 rounded-md hover:bg-blue-600 transition-colors">Subir imagen</label>
+                    <span id="fileName" class="text-sm text-gray-600"></span>
                 </div>
-
-                <!-- Producto 2: Ajinomen -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="relative">
-                        <img src="{{ url_for('static', filename='assets/img/products/Scan0003.jpg') }}"
-                            alt="Ajinomen" class="w-full h-64 object-contain">
-                        <div
-                            class="absolute top-2 right-2 bg-yellow-500 text-white px-2 py-1 rounded-md text-sm font-semibold">
-                            Destacado</div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">Multicereal</h3>
-                        <p class="text-2xl font-bold text-red-600 mb-4">6.00 Bs.</p>
-
-                        <!-- Botón Comprar ahora -->
-                        <button
-                            onclick="buyNow('Multicereal', 6, '/src/static/assets/img/products/Scan0003.jpg'); showConfirmationModal();"
-                            class="w-full bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-colors duration-200 flex items-center justify-center mb-2">
-                            Comprar ahora
-                        </button>
-
-                        <!-- Botón Ver detalles -->
-                        <button
-                            class="w-full bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition-colors duration-200 flex items-center justify-center mb-2"
-                            onclick="handleProductDetails('Multicereal', 6, '/static/assets/img/products/Scan0003.jpg', 'Fideos instantáneos sabrosos', ['Rápido de preparar', 'Ideal para cualquier momento', 'Sabor auténtico'])">
-                            Ver detalles
-                        </button>
-
-                        <!-- Botón Agregar al carrito -->
-                        <button
-                            onclick="addToCart('Multicereal', 6, '/static/assets/img/products/Scan0003.jpg'); showAddToCartModal();"
-                            class="w-full bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-200 flex items-center justify-center">
-                            Agregar al carrito
-                        </button>
-                    </div>
-                </div>
-
-
-                <!-- Producto 3: Fideos en sachet La Estrella -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="relative">
-                        <img src="{{ url_for('static', filename='assets/img/products/Scan0004.jpg') }}"
-                            alt="Fideos en sachet marca La Estrella" class="w-full h-64 object-contain">
-                        <div
-                            class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-md text-sm font-semibold">
-                            Oferta
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">Api Morado</h3>
-                        <p class="text-2xl font-bold text-red-600 mb-4">6.00 Bs.</p>
-
-                        <!-- Botón Comprar ahora -->
-                        <button
-                            onclick="buyNow('Api Morado', 6, '/static/assets/img/products/Scan0004.jpg'); showConfirmationModal();"
-                            class="w-full bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-colors duration-200 flex items-center justify-center mb-2">
-                            Comprar ahora
-                        </button>
-
-                        <!-- Botón Ver detalles -->
-                        <button
-                            class="w-full bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition-colors duration-200 flex items-center justify-center mb-2"
-                            onclick="handleProductDetails('Api Morado', 6, '/static/assets/img/products/Scan0004.jpg', 'Fideos instantáneos de alta calidad en práctico sachet, listos en minutos.', ['Fácil preparación', 'Sabor delicioso', 'Ideal para comidas rápidas'])">
-                            Ver detalles
-                        </button>
-
-                        <!-- Botón Agregar al carrito -->
-                        <button
-                            onclick="addToCart('Api Morado', 6, '/static/assets/img/products/Scan0004.jpg'); showAddToCartModal();"
-                            class="w-full bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-200 flex items-center justify-center">
-                            Agregar al carrito
-                        </button>
-                    </div>
-                </div>
-
-
-                <!-- Producto 4: Leche en polvo marca Pil -->
-                <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-                    <div class="relative">
-                        <img src="{{ url_for('static', filename='assets/img/products/Scan0001.jpg') }}"
-                            alt="Leche en polvo marca Pil" class="w-full h-64 object-contain">
-                        <div
-                            class="absolute top-2 right-2 bg-purple-600 text-white px-2 py-1 rounded-md text-sm font-semibold">
-                            Premium
-                        </div>
-                    </div>
-                    <div class="p-4">
-                        <h3 class="text-xl font-semibold mb-2">Lawa de Choclo</h3>
-                        <p class="text-2xl font-bold text-red-600 mb-4">6.00 Bs.</p>
-
-                        <!-- Botón Comprar ahora -->
-                        <button
-                            class="w-full bg-red-600 text-white px-4 py-2 rounded-full hover:bg-red-700 transition-colors duration-200 flex items-center justify-center mb-2"
-                            onclick="buyNow('Lawa de Choclo', 6, '/static/assets/img/products/Scan0001.jpg'); showConfirmationModal();">
-                            Comprar ahora
-                        </button>
-
-                        <!-- Botón Ver detalles -->
-                        <button
-                            class="w-full bg-gray-200 text-gray-700 px-4 py-2 rounded-full hover:bg-gray-300 transition-colors duration-200 flex items-center justify-center mb-2"
-                            onclick="handleProductDetails('Lawa de Choclo', 6, '/static/assets/img/products/Scan0001.jpg', 'Leche en polvo de alta calidad, ideal para la preparación de bebidas y recetas.', ['Rica en nutrientes', 'Fácil disolución', 'Perfecta para el desayuno'])">
-                            Ver detalles
-                        </button>
-
-                        <!-- Botón Agregar al carrito -->
-                        <button
-                            onclick="addToCart('Lawa de Choclo', 6, '/src/static/assets/img/products/Scan0001.jpg'); showAddToCartModal();"
-                            class="w-full bg-orange-500 text-white px-4 py-2 rounded-full hover:bg-orange-600 transition-colors duration-200 flex items-center justify-center">
-                            Agregar al carrito
-                        </button>
-                    </div>
-                </div>
+                <button id="submitMission" class="w-full bg-green-500 text-white px-3 py-2 rounded-md hover:bg-green-600 transition-colors">Enviar</button>
+            </div>
+            <p id="noMissions" class="text-gray-500 hidden">No hay misiones disponibles en este momento.</p>
+            <p id="nextMissions" class="text-sm text-gray-500 mt-2 hidden">Próximas misiones en: <span id="countdown"></span></p>
+        </div>
+          
 
 
 
-                <!-- Ventana emergente -->
-                <div id="confirmationModal"
-                    class="fixed inset-0 flex items-center justify-center z-50 hidden bg-gray-800 bg-opacity-50">
-                    <div class="bg-white rounded-lg shadow-lg p-6 w-11/12 md:w-1/4 max-w-sm">
-                        <p class="text-center mb-4">Agregado correctamente al carrito</p>
 
-                        <div class="flex flex-col items-center">
-                            <button onclick="continueExploring()"
-                                class="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700 transition-colors duration-200 mb-2 w-full">Seguir
-                                explorando</button>
-                            <button onclick="goToCart()"
-                                class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition-colors duration-200 w-full">Ir
-                                al carrito</button>
-                        </div>
 
-                        <span
-                            class="close text-gray-500 cursor-pointer block mt-4 text-center border border-red-600 rounded-full px-2 py-1"
-                            onclick="closeModal()">&times;</span>
-
-                    </div>
-        </section>
+        
     </main>
     <script>
         // Función para mostrar la ventana emergente
@@ -612,6 +488,7 @@
         });
     </script>
     <script src="/static/js/mission-button.js"></script>
+    
 
 </body>
 
