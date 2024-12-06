@@ -124,64 +124,113 @@
         });
     </script>
 
-    <main class="flex items-center justify-center min-h-screen px-4 bg-gray-100 pt-64">
-        <div class="w-full max-w-lg">
-            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                <div class="flex">
-                    <button id="loginTab" class="w-1/2 py-4 text-center font-medium text-gray-600 bg-gray-100 focus:outline-none">Iniciar Sesión</button>
-                    <button id="registerTab" class="w-1/2 py-4 text-center font-medium text-gray-600 bg-white focus:outline-none">Registrarse</button>
-                </div>
-                <div id="loginContent" class="space-y-3.5 p-2 border border-red-500 rounded-md">
-                    <h1 class="text-3xl font-bold text-center text-gray-800 mb-0">Iniciar Sesión</h1>
-                    <form class="space-y-6">
-                        <div class="space-y-3">
-                            <label for="email" class="block text-lg font-medium text-gray-700">Correo Electrónico</label>
-                            <input id="email" type="email" placeholder="correo@ejemplo.com" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required="">
-                        </div>
-                        <div class="space-y-3">
-                            <label for="password" class="block text-lg font-medium text-gray-700">Contraseña</label>
-                            <input id="password" type="password" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" placeholder="Ingresa tu contraseña" required="">
-                        </div>
-                        <button type="submit" class="w-full bg-elegida-red hover:bg-red-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
-                            Iniciar Sesión
-                        </button>
-                    </form>                    
-                    <div class="relative my-6">
-                        <div class="absolute inset-0 flex items-center">
-                            <div class="w-full border-t border-gray-300"></div>
-                        </div>
-                        <div class="relative flex justify-center text-sm">
-                            <span class="px-2 bg-white text-gray-500">O continúa con</span>
-                        </div>
+<main class="flex items-center justify-center min-h-screen px-4 bg-gray-100 pt-64 pb-16">
+    <div class="w-full max-w-lg">
+        <div class="bg-white rounded-lg shadow-md overflow-hidden">
+            <div class="flex">
+                <button id="loginTab" class="w-1/2 py-4 text-center font-medium text-gray-600 bg-gray-100 focus:outline-none">Iniciar Sesión</button>
+                <button id="registerTab" class="w-1/2 py-4 text-center font-medium text-gray-600 bg-white focus:outline-none">Registrarse</button>
+            </div>
+            <div id="loginContent" class="space-y-3.5 p-2 border border-red-500 rounded-md">
+                <h1 class="text-3xl font-bold text-center text-gray-800 mb-0">Iniciar Sesión</h1>
+                <form class="space-y-6">
+                    <div class="space-y-3">
+                        <label for="email" class="block text-lg font-medium text-gray-700">Correo Electrónico</label>
+                        <input id="email" type="email" placeholder="correo@ejemplo.com" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required>
                     </div>
-                    <button onclick="handleGoogleSignIn()" class="w-full bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 font-bold py-3 px-4 rounded flex items-center justify-center focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
-                        <div class="flex items-center">
-                            <i class="fab fa-google mr-4"></i> <!-- Mayor margen derecho -->
-                            <span>Iniciar sesión con Google</span>
-                        </div>
-                    </button>                                       
-                </div>                                
-            </div>                
-            <div id="registerContent" class="space-y-3 p-2 border border-red-500">
+                    <div class="space-y-3">
+                        <label for="password" class="block text-lg font-medium text-gray-700">Contraseña</label>
+                        <input id="password" type="password" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" placeholder="Ingresa tu contraseña" required>
+                    </div>
+                    <button type="submit" class="w-full bg-elegida-red hover:bg-red-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                        Iniciar Sesión
+                    </button>
+                </form>                    
+                <div class="relative my-6">
+                    <div class="absolute inset-0 flex items-center">
+                        <div class="w-full border-t border-gray-300"></div>
+                    </div>
+                    <div class="relative flex justify-center text-sm">
+                        <span class="px-2 bg-white text-gray-500">O continúa con</span>
+                    </div>
+                </div>
+                <button onclick="handleGoogleSignIn()" class="w-full bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 font-bold py-3 px-4 rounded flex items-center justify-center focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                    <div class="flex items-center">
+                        <i class="fab fa-google mr-4"></i>
+                        <span>Iniciar sesión con Google</span>
+                    </div>
+                </button>                                       
+            </div>                                
+            <div id="registerContent" class="space-y-3 p-2 border border-red-500 hidden">
                 <h1 class="text-3xl font-bold text-center text-gray-800 mb-0">Registrarse</h1> 
-                <form class="space-y-3">
+                <div class="flex justify-center space-x-4 mb-4">
+                    <button id="distributorRegisterBtn" class="bg-elegida-red hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                        Distribuidor
+                    </button>
+                    <button id="clientRegisterBtn" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                        Cliente
+                    </button>
+                </div>
+                <form id="distributorForm" class="space-y-4">
+                    <div class="space-y-2">
+                        <label for="fullName" class="block text-lg font-medium text-gray-700">Nombre Completo</label>
+                        <input id="fullName" type="text" placeholder="Nombre y Apellidos" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="profilePicture" class="block text-lg font-medium text-gray-700">Foto de Perfil</label>
+                        <input id="profilePicture" type="file" accept="image/*" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required>
+                    </div>
                     <div class="space-y-2">
                         <label for="register-email" class="block text-lg font-medium text-gray-700">Correo Electrónico</label>
-                        <input id="register-email" type="email" placeholder="correo@ejemplo.com" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required="">
+                        <input id="register-email" type="email" placeholder="correo@ejemplo.com" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="whatsapp" class="block text-lg font-medium text-gray-700">Teléfono (WhatsApp)</label>
+                        <input id="whatsapp" type="tel" placeholder="Número de WhatsApp" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required>
                     </div>
                     <div class="space-y-2">
                         <label for="register-password" class="block text-lg font-medium text-gray-700">Contraseña</label>
-                        <input id="register-password" type="password" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" placeholder="Ingresa una contraseña" minlength="8" required="">
-                        <small class="text-gray-600">La contraseña debe tener al menos 8 caracteres.</small>
+                        <input id="register-password" type="password" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" placeholder="Ingresa una contraseña" minlength="8" required>
+                        <small class="text-gray-600">La contraseña debe tener al menos 8 caracteres, un número y un símbolo.</small>
                     </div>
                     <div class="space-y-2">
                         <label for="confirm-password" class="block text-lg font-medium text-gray-700">Confirmar Contraseña</label>
-                        <input id="confirm-password" type="password" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required="">
+                        <input id="confirm-password" type="password" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="idCard" class="block text-lg font-medium text-gray-700">Carnet de Identidad (Anverso y Reverso)</label>
+                        <input id="idCard" type="file" accept="image/*" multiple class="w-full px-4 py-3 border border-black rounded-md bg-white text-black focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required>
+                        <small class="text-gray-600">Formato: JPG/PNG, tamaño máximo: 2MB por imagen</small>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="businessAddress" class="block text-lg font-medium text-gray-700">Dirección Comercial</label>
+                        <textarea id="businessAddress" placeholder="Ingresa tu dirección comercial" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required></textarea>
                     </div>
                     <button type="submit" class="w-full bg-elegida-red hover:bg-red-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
-                        Registrarse
+                        Enviar Solicitud de Registro
                     </button>
-                </form>                    
+                </form>
+                <form id="clientForm" class="space-y-4 hidden">
+                    <div class="space-y-2">
+                        <label for="clientFullName" class="block text-lg font-medium text-gray-700">Nombre Completo</label>
+                        <input id="clientFullName" type="text" placeholder="Nombre y Apellidos" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="clientPhone" class="block text-lg font-medium text-gray-700">Número de Teléfono o WhatsApp</label>
+                        <input id="clientPhone" type="tel" placeholder="Número de teléfono" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="clientAddress" class="block text-lg font-medium text-gray-700">Dirección Completa para Delivery</label>
+                        <textarea id="clientAddress" placeholder="Calle 1, Calle 2, Zona, Número de Casa, Descripción de casa" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required></textarea>
+                    </div>
+                    <div class="space-y-2">
+                        <label for="clientEmail" class="block text-lg font-medium text-gray-700">Correo Electrónico</label>
+                        <input id="clientEmail" type="email" placeholder="correo@ejemplo.com" class="w-full px-4 py-3 border border-black rounded-md bg-white text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-elegida-red focus:border-transparent" required>
+                    </div>
+                    <button type="submit" class="w-full bg-elegida-red hover:bg-red-700 text-white font-bold py-3 px-4 rounded focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
+                        Confirmar Datos
+                    </button>
+                </form>
                 <div class="relative my-4">
                     <div class="absolute inset-0 flex items-center">
                         <div class="w-full border-t border-gray-300"></div>
@@ -192,65 +241,122 @@
                 </div>
                 <button onclick="handleGoogleSignIn()" class="w-full bg-white text-gray-700 border border-gray-300 hover:bg-gray-50 font-bold py-3 px-4 rounded flex items-center justify-center focus:outline-none focus:shadow-outline transition duration-150 ease-in-out">
                     <div class="flex items-center">
-                        <i class="fab fa-google mr-4"></i> <!-- Icono de Google -->
+                        <i class="fab fa-google mr-4"></i>
                         <span>Registrarse con Google</span>
                     </div>
                 </button>                
             </div>                                
         </div>
-    </main>
+    </div>
+</main>
     
     
     <script>
-        function handleGoogleSignIn() {
-            // Implement Google Sign-In logic here
-            console.log("Google Sign-In clicked");
-        }
-    
         document.addEventListener('DOMContentLoaded', function() {
-            const loginTab = document.getElementById('loginTab');
-            const registerTab = document.getElementById('registerTab');
-            const loginContent = document.getElementById('loginContent');
-            const registerContent = document.getElementById('registerContent');
-    
-            // Establecer el estado inicial
-            loginTab.classList.add('bg-white', 'border', 'border-red-500');  // Tab de inicio de sesión activo
-            registerTab.classList.add('bg-white'); // Tab de registro inactivo (blanco)
-    
-            // Mostrar solo el contenido de inicio de sesión al cargar
-            loginContent.classList.remove('hidden');
-            registerContent.classList.add('hidden');
-    
-            loginTab.addEventListener('click', function() {
-                // Cambiar el estilo del tab de inicio de sesión
-                loginTab.classList.remove('bg-gray-300');
-                loginTab.classList.add('bg-white', 'border', 'border-red-500');
-    
-                // Cambiar el estilo del tab de registro
-                registerTab.classList.remove('bg-white', 'border', 'border-red-500');
-                registerTab.classList.add('bg-white'); // Cambiado a blanco
-    
-                // Mostrar el contenido de inicio de sesión
-                loginContent.classList.remove('hidden');
-                // Ocultar el contenido de registro
-                registerContent.classList.add('hidden');
-            });
-    
-            registerTab.addEventListener('click', function() {
-                // Cambiar el estilo del tab de registro
-                registerTab.classList.remove('bg-white');
-                registerTab.classList.add('bg-white', 'border', 'border-red-500');
-    
-                // Cambiar el estilo del tab de inicio de sesión
-                loginTab.classList.remove('bg-white', 'border', 'border-red-500');
-                loginTab.classList.add('bg-white'); // Cambiado a blanco
-    
-                // Mostrar el contenido de registro
-                registerContent.classList.remove('hidden');
-                // Ocultar el contenido de inicio de sesión
-                loginContent.classList.add('hidden');
-            });
+    const loginTab = document.getElementById('loginTab');
+    const registerTab = document.getElementById('registerTab');
+    const loginContent = document.getElementById('loginContent');
+    const registerContent = document.getElementById('registerContent');
+    const distributorRegisterBtn = document.getElementById('distributorRegisterBtn');
+    const clientRegisterBtn = document.getElementById('clientRegisterBtn');
+    const distributorForm = document.getElementById('distributorForm');
+    const clientForm = document.getElementById('clientForm');
+
+    // Establecer el estado inicial
+    loginTab.classList.add('bg-white', 'border', 'border-red-500');
+    registerTab.classList.add('bg-white');
+    loginContent.classList.remove('hidden');
+    registerContent.classList.add('hidden');
+    distributorForm.classList.remove('hidden');
+    clientForm.classList.add('hidden');
+
+    loginTab.addEventListener('click', function() {
+        loginTab.classList.remove('bg-gray-300');
+        loginTab.classList.add('bg-white', 'border', 'border-red-500');
+        registerTab.classList.remove('bg-white', 'border', 'border-red-500');
+        registerTab.classList.add('bg-white');
+        loginContent.classList.remove('hidden');
+        registerContent.classList.add('hidden');
+    });
+
+    registerTab.addEventListener('click', function() {
+        registerTab.classList.remove('bg-white');
+        registerTab.classList.add('bg-white', 'border', 'border-red-500');
+        loginTab.classList.remove('bg-white', 'border', 'border-red-500');
+        loginTab.classList.add('bg-white');
+        registerContent.classList.remove('hidden');
+        loginContent.classList.add('hidden');
+    });
+
+    distributorRegisterBtn.addEventListener('click', function() {
+        distributorForm.classList.remove('hidden');
+        clientForm.classList.add('hidden');
+        distributorRegisterBtn.classList.add('bg-elegida-red');
+        distributorRegisterBtn.classList.remove('bg-blue-500');
+        clientRegisterBtn.classList.add('bg-blue-500');
+        clientRegisterBtn.classList.remove('bg-elegida-red');
+    });
+
+    clientRegisterBtn.addEventListener('click', function() {
+        clientForm.classList.remove('hidden');
+        distributorForm.classList.add('hidden');
+        clientRegisterBtn.classList.add('bg-elegida-red');
+        clientRegisterBtn.classList.remove('bg-blue-500');
+        distributorRegisterBtn.classList.add('bg-blue-500');
+        distributorRegisterBtn.classList.remove('bg-elegida-red');
+    });
+
+    // Form validation
+    const forms = document.querySelectorAll('form');
+    forms.forEach(form => {
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (form.checkValidity()) {
+                // Perform form submission
+                console.log('Form submitted:', form.id);
+                // You can add AJAX call here to submit the form data
+            } else {
+                // Display validation messages
+                form.reportValidity();
+            }
         });
+    });
+
+    // Password validation
+    const passwordInputs = document.querySelectorAll('input[type="password"]');
+    passwordInputs.forEach(input => {
+        input.addEventListener('input', function() {
+            const password = this.value;
+            const regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+            if (regex.test(password)) {
+                this.setCustomValidity('');
+            } else {
+                this.setCustomValidity('La contraseña debe tener al menos 8 caracteres, un número, un símbolo, una letra minúscula y una mayúscula.');
+            }
+        });
+    });
+
+    // File size validation
+    const fileInputs = document.querySelectorAll('input[type="file"]');
+    fileInputs.forEach(input => {
+        input.addEventListener('change', function() {
+            const files = this.files;
+            for (let i = 0; i < files.length; i++) {
+                if (files[i].size > 2 * 1024 * 1024) {
+                    this.setCustomValidity('El tamaño máximo permitido por archivo es 2MB.');
+                    return;
+                }
+            }
+            this.setCustomValidity('');
+        });
+    });
+});
+
+function handleGoogleSignIn() {
+    // Implement Google Sign-In logic here
+    console.log("Google Sign-In clicked");
+    // You can add the actual Google Sign-In implementation here
+}
     </script>     
 <footer class="bg-elegida-red text-white py-2 px-4">
     <div class="container mx-auto">

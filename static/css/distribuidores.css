@@ -1,180 +1,174 @@
-:root {
-    --elegida-red: #FF0000;
-    --white: #FFFFFF;
-    --black: #000000;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: var(--black);
-    background-color: #f4f4f4;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.bg-elegida-red {
-    background-color: var(--elegida-red);
-}
-
-.text-white {
-    color: var(--white);
-}
-
-.distribuidor-card {
-    background-color: var(--white);
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-    border: 2px solid var(--elegida-red);
-}
-
-.distribuidor-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-}
-
-.distribuidor-header {
-    background-color: var(--elegida-red);
-    color: var(--white);
-    padding: 1.2rem;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
-}
-
-.distribuidor-body {
-    padding: 1.5rem;
-}
-
-.producto-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.75rem 0;
-    border-bottom: 1px solid #ddd;
-}
-
-.producto-item:last-child {
-    border-bottom: none;
-}
-
-.stock-bajo {
-    color: var(--elegida-red);
-    font-weight: bold;
-}
-
-.whatsapp-btn, .conocer-btn {
-    background-color: #25D366;
-    color: var(--white);
-    border: none;
-    padding: 0.6rem 1.2rem;
-    border-radius: 0.25rem;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin-right: 10px;
-}
-
-.whatsapp-btn:hover, .conocer-btn:hover {
-    background-color: #128C7E;
-    transform: scale(1.05);
-}
-
-.conocer-btn {
-    background-color: var(--elegida-red);
-}
-
-.conocer-btn:hover {
-    background-color: #D30000;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-    background-color: #fefefe;
-    margin: 15% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 600px;
-}
-
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
 .search-container {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    margin: 20px 0;
+    text-align: center;
 }
 
 #searchInput {
     width: 100%;
-    max-width: 400px;
-    padding: 0.6rem 1rem;
-    font-size: 1rem;
-    border: 2px solid var(--elegida-red);
-    border-radius: 2rem;
-    outline: none;
-    transition: box-shadow 0.3s ease;
-    background-color: #fff;
-    background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="gray" class="bi bi-search" viewBox="0 0 16 16"%3E%3Cpath d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.415l-3.85-3.85a1.007 1.007 0 0 0-.115-.098zm-5.442 1.254a5.5 5.5 0 1 1 0-11 5.5 5.5 0 0 1 0 11z"/%3E%3C/svg%3E');
-    background-repeat: no-repeat;
-    background-position: 0.8rem center;
-    background-size: 1rem;
-    padding-left: 2.5rem;
+    max-width: 500px;
+    padding: 12px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: all 0.3s ease;
 }
 
 #searchInput:focus {
-    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.3);
+    outline: none;
+    border-color: #ff4757;
+    box-shadow: 0 0 5px rgba(255, 71, 87, 0.3);
 }
 
-.distribuidor-footer {
+#vendedoresContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.vendedor-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+    border: 1px solid #ff4757;
+}
+
+.vendedor-card:hover {
+    transform: translateY(-5px);
+}
+
+.vendedor-header {
+    background: #ff4757;
+    color: white;
+    padding: 15px;
     display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.vendedor-photo-container {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+    overflow: hidden;
+}
+
+.vendedor-photo-placeholder {
+    width: 100%;
+    height: 100%;
+    background: #e0e0e0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 20px;
+}
+
+.vendedor-info {
+    flex: 1;
+}
+
+.vendedor-info h2 {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: 600;
+}
+
+.puntos {
+    font-size: 0.9em;
+    opacity: 0.9;
+    margin-top: 4px;
+}
+
+.vendedor-footer {
+    padding: 15px;
+    display: flex;
+    gap: 10px;
     justify-content: space-between;
-    padding: 1rem;
 }
 
-.distribuidor-foto {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: 1rem;
+.whatsapp-btn, .conocer-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.2s ease;
 }
 
-.modal-foto {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1rem;
+.whatsapp-btn {
+    background-color: #25D366;
+    color: white;
 }
+
+.whatsapp-btn:hover {
+    background-color: #1fb959;
+}
+
+.conocer-btn {
+    background-color: #ff4757;
+    color: white;
+}
+
+.conocer-btn:hover {
+    background-color: #ff3344;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 25px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+}
+
+.close:hover {
+    color: #ff4757;
+}
+
+.modal-content h2 {
+    color: #ff4757;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.modal-content p {
+    margin: 10px 0;
+    line-height: 1.5;
+}
+
